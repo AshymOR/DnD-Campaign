@@ -15,4 +15,5 @@ Say you want to do some work on the project. Here's what to do:
 10. When the branch is merged, the project manager will remove the branch from GitHub. The feature is added, and the branch is no longer needed.
     - You can delete your local branch with `git branch -d [branchName]`
     - You don't have to do this, but it can clean up your local repo and prevent you from accidentally checking out an old branch that's way behind the master.
-11. To work on a new feature, go back to step 1 and create a new branch named after the new feature you'll be working on.
+11. To work on a new feature, `git checkout master` so you're no longer on your old branch.
+12. Then, go back to step 1 and create a new branch named after the new feature you'll be working on.
