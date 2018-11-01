@@ -6,7 +6,7 @@ Say you want to do some work on the project. Here's what to do:
 2. `git pull` so that your local master is synced up with the remote master.
 3. Create and check out a new branch from your local master with `git checkout -b [branchName]`
     - Make sure that you name your branch after the feature you're working on. That way it will be clear during pull requests what features are being merged.
-4. Make your changes. Commit to your local branch often with `git commit -m [Message]`
+4. Make your changes. Commit to your local branch often with `git add .` and `git commit -m [Message]`
 5. When you're ready to merge your changes into the remote master, sync your local master branch with the remote master with `git fetch origin master`
 6. Merge your local branch into your local master with `git merge master`
 7. Resolve any conflicts locally.
