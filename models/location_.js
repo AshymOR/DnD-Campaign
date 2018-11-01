@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     // Add underscore to Location because Location is keyword or something
-    var Location_ = sequelize.define("Sequelize", {
+    var Location_ = sequelize.define("Location_", {
         BackgroundURL: {
             type: DataTypes.STRING
         }

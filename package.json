@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/AshymOR/DnD-Campaign#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.41.0"
     "materialize-css": "^1.0.0-rc.2"
   }
 }

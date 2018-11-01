@@ -1,1 +1,1 @@
-// HTML API routes to go here
+// HTML routes to go here
