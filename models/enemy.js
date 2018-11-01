@@ -9,13 +9,13 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         spriteURL: {
-            type: DataTypes.VARCHAR,
+            type: DataTypes.STRING,
             defaultValue: "#"
         }
     });
 
     Enemy.associate = function (models) {
-        Enemy.belongsTo(models.Location, {
+        Enemy.belongsTo(models.Location_, {
             foreignKey: {
                 allowNull: false
             }

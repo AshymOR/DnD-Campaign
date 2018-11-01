@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         spriteURL: {
-            type: DataTypes.VARCHAR,
+            type: DataTypes.STRING,
             defaultValue: "#"
         }
     });

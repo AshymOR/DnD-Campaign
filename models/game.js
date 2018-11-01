@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Game = sequelize.define("Sequelize", {
-      
+        started: DataTypes.BOOLEAN
     });
 
     Game.associate = function(models) {
@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         })
-        Game.hasOne(models.Location, {
+        Game.hasOne(models.Location_, {
             foreignKey: {
                 allowNull: false
             }
