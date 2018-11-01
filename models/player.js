@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Player = sequelize.define("Sequelize", {
+    var Player = sequelize.define("Player", {
         hp: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -15,12 +15,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Player.associate = function (models) {
-        Player.belongsTo(models.Player, {
-            foreignKey: {
-                allowNull: false
-            }
-        })
-        Player.hasOne(models.Game, {
+        Player.belongsTo(models.Game, {
             foreignKey: {
                 allowNull: false
             }
