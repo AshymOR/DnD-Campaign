@@ -2,6 +2,9 @@
 
 Our game will use four tables: Games, Player, Location, and Enemies.
 
+![alt text](DB_Model.png "DB Diagram")
+
+
 The Games table stores the state of a given game. Each record in the table represents a seperate game. This is done by storing the ID of the player object (as they last were in the game) and the ID of the player's current location on the game tree. These relationships should be 1 to 1.
 
 The Player table stores the current state of each player. Each record gets updated when it is affected by the events of its game (for example, a Player's HP column will be decremented when they take a hit from an enemy). The object also stores a URL to pull up the player's sprite image.
