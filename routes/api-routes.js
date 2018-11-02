@@ -57,8 +57,8 @@ module.exports = function (app) {
                 where: {
                     id: req.body.id
                 }
-            }).then(function(updatedGame) {
-                res.json(updatedGame);
+            }).then(function(updatedPlayer) {
+                res.json(updatedPlayer);
             });
     });
 
