@@ -45,15 +45,27 @@ module.exports = function (app) {
 
     // Updates a player based on the id in the req body
     app.put("/api/player/", function (req, res) {
-        // db.Author.create(req.body).then(function (dbAuthor) {
-        //     res.json(dbAuthor);
-        // });
+        db.Player.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(updatedGame) {
+                res.json(updatedGame);
+            });
     });
 
     // Updates a game based on the id in the req body
     app.put("/api/game/", function (req, res) {
-        // db.Author.create(req.body).then(function (dbAuthor) {
-        //     res.json(dbAuthor);
-        // });
+        db.Player.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(updatedGame) {
+                res.json(updatedGame);
+            });
     });
-};
+}
