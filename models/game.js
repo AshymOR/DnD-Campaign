@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Game = sequelize.define("Game", {
-        started: DataTypes.BOOLEAN
+        code: DataTypes.STRING
     });
 
     Game.associate = function(models) {
