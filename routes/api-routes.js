@@ -53,12 +53,13 @@ module.exports = function (app) {
                 }
             }).then(function(updatedPlayer) {
                 res.json(updatedPlayer);
+
             });
     });
 
-    // Updates a game based on the id in the req body
+    // Updates a game based on the id in the req body.
     app.put("/api/game/", function (req, res) {
-        db.Player.update(
+        db.Game.update(
             req.body,
             {
                 where: {
