@@ -1,1 +1,8 @@
-/* Style to go here */
+.button {
+    box-align: center;
+}
+
+.container {
+    margin-top: 70px;
+    border: 2px grey solid;
+}
