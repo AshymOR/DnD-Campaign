@@ -24,15 +24,9 @@ module.exports = function (app) {
 
     // Creates a new player
     app.post("/api/player/", function (req, res) {
-        // // 1. Add a join to include all of each Author's Posts
-        // db.Author.findAll({
-        //     include: [db.Post]
-        // }).then(function (dbAuthor) {
-        //     res.json(dbAuthor);
-        // });
 
-        db.Player.create(req.body).then(function(response) {
-            res.json(response);
+        db.Player.create(req.body).then(function(newPlayer) {
+            res.json(newPlayer);
         });
 
     });
@@ -44,8 +38,8 @@ module.exports = function (app) {
         db.Game.create({
             code: "asdfadsf",
             locations: locationArray
-        }).then(function(response) {
-            res.json(response)
+        }).then(function(newGame) {
+            res.json(newGame)
         });
     });
 
