@@ -9,10 +9,13 @@ module.exports = function (app) {
             include: [
                 db.Player,
                 {
-                    model: db.Location,
+                    model: db.Location_,
                     include: [db.Enemy]
                 }
-            ]
+            ],
+            where: {
+                id: req.params.id
+            }
         }).then(function (response) {
             res.json(response);
         });

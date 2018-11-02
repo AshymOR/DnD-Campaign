@@ -1,6 +1,7 @@
 var db = require("./models");
 
 db.Game.create({code: "asdf"});
+db.Game.create({code: "jkl;"});
 
 db.Player.create({
     name: "Alex",
@@ -21,7 +22,7 @@ db.Player.create({
     hp: 50,
     atk: 10,
     spriteURL: "#",
-    GameId: 1
+    GameId: 2
 });
 
 db.Location_.create({
