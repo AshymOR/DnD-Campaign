@@ -29,11 +29,6 @@ db.Location_.create({
     GameId: 1
 });
 
-db.Location_.create({
-    BackgroundURL: "#",
-    GameId: 1
-})
-
 db.Enemy.create({
     name: "Cruz",
     hp: 89,
