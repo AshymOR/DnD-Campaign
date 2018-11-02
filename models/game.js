@@ -1,19 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
-    var Game = sequelize.define("Sequelize", {
-      
+    var Game = sequelize.define("Game", {
+        code: DataTypes.STRING,
+        locations: DataTypes.JSON,
+        currentLocI: DataTypes.INTEGER
     });
 
     Game.associate = function(models) {
-        Game.belongsTo(models.Player, {
+        Game.hasOne(models.Player, {
             foreignKey: {
                 allowNull: false
             }
         })
-        Game.hasOne(models.Location, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
     }
     return Game;
   };
