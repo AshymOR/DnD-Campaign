@@ -53,6 +53,7 @@ module.exports = function (app) {
                 }
             }).then(function(updatedPlayer) {
                 res.json(updatedPlayer);
+
             });
     });
 
