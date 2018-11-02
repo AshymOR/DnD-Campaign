@@ -21,7 +21,8 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/api/player/:id", function (req, res) {
+    // Creates a new player
+    app.post("/api/player/", function (req, res) {
         // // 1. Add a join to include all of each Author's Posts
         // db.Author.findAll({
         //     include: [db.Post]
@@ -30,7 +31,8 @@ module.exports = function (app) {
         // });
     });
 
-    app.get("/api/location/:id", function (req, res) {
+    // Creates a new game
+    app.post("/api/game/", function (req, res) {
         // // 1. Add a join to include all of each Author's Posts
         // db.Author.findAll({
         //     include: [db.Post]
@@ -39,19 +41,15 @@ module.exports = function (app) {
         // });
     });
 
-    app.post("/api/player/:id", function (req, res) {
+    // Updates a player based on the id in the req body
+    app.put("/api/player/", function (req, res) {
         // db.Author.create(req.body).then(function (dbAuthor) {
         //     res.json(dbAuthor);
         // });
     });
 
-    app.post("/api/enemy/:id", function (req, res) {
-        // db.Author.create(req.body).then(function (dbAuthor) {
-        //     res.json(dbAuthor);
-        // });
-    });
-
-    app.post("/api/game/:id", function (req, res) {
+    // Updates a game based on the id in the req body
+    app.put("/api/game/", function (req, res) {
         // db.Author.create(req.body).then(function (dbAuthor) {
         //     res.json(dbAuthor);
         // });
