@@ -6,7 +6,8 @@ function Location(name, enemy, backgroundURL) {
 
 function Enemy(name, hp, atk, spriteURL) {
     this.name = name;
-    this.enemy = enemy;
+    this.hp = hp;
+    this.atk = atk
     this.backgroundURL = backgroundURL;
 }
 
