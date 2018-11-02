@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Enemy = sequelize.define("Enemy", {
+    var Enemy = sequelize.define("Sequelize", {
         hp: {
             type: DataTypes.INTEGER,
             allowNull: false

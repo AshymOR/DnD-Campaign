@@ -1,5 +1,22 @@
 module.exports = function (sequelize, DataTypes) {
     var Player = sequelize.define("Player", {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            len: [1, 20]
+        },
+        gender: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        race: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        class: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         hp: {
             type: DataTypes.INTEGER,
             allowNull: false
