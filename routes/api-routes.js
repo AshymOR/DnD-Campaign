@@ -56,7 +56,7 @@ module.exports = function (app) {
             });
     });
 
-    // Updates a game based on the id in the req body
+    // Updates a game based on the id in the req body.
     app.put("/api/game/", function (req, res) {
         db.Game.update(
             req.body,
