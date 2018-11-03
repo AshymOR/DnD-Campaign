@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>D&D Campaign | Player Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/player.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <form class="form-inline">
+                        <div class="input-group input-group-lg col-md-12">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-lg">Name:</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="playerName" value="John Smith" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="editToggle"><span class="glyphicon-pencil"><i class="fas fa-pencil-alt"></i></span><span class="glyphicon-ok"><i class="fas fa-check-circle"></i></span></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12" style="max-height:75%">
+                        <img class="img-fluid charPortrait" style="max-height:75%">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Level <span class="charLevel">#</span></h4>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="form-control charGender">
+                                        <option selected disabled>Selct...</option>
+                                        <option value="male"><i class="fas fa-male"> Male</i></option>
+                                        <option value="female"><i class="fas fa-female"> Female</i></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="form-control charRace">
+                                        <option selected disabled>Select...</option>
+                                        <option value="dragonborn">Dragonborn</option>
+                                        <option value="dwarf">Dwarf</option>
+                                        <option value="elf">Elf</option>
+                                        <option value="gnome">Gnome</option>
+                                        <option value="halfelf">Half-Elf</option>
+                                        <option value="halfling">Halfling</option>
+                                        <option value="halforc">Half-Orc</option>
+                                        <option value="human">Human</option>
+                                        <option value="tiefling">Tiefling</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="form-control charClass">
+                                        <option selected disabled>Select...</option>
+                                        <option value="barbarian">Barbarian</option>
+                                        <option value="bard">Bard</option>
+                                        <option value="cleric">Cleric</option>
+                                        <option value="druid">Druid</option>
+                                        <option value="fighter">Fighter</option>
+                                        <option value="monk">Monk</option>
+                                        <option value="paladin">Paladin</option>
+                                        <option value="ranger">Ranger</option>
+                                        <option value="rogue">Rogue</option>
+                                        <option value="sorcerer">Sorcerer</option>
+                                        <option value="warlock">Warlock</option>
+                                        <option value="warlord">Warlord</option>
+                                        <option value="wizard">Wizard</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="form-control charAlign">
+                                        <option selected disabled>Select...</option>
+                                        <option value="lawful-good">Lawful Good</option>
+                                        <option value="neutral-good">Neutral Good</option>
+                                        <option value="chaotic-good">Chaotic Good</option>
+                                        <option value="lawful-neutral">Lawful Neutral</option>
+                                        <option value="true-neutral">True Neutral</option>
+                                        <option value="chaotic-neutral">Chaotic Neutral</option>
+                                        <option value="lawful-evil">Lawful Evil</option>
+                                        <option value="neutral-evil">Neutral Evil</option>
+                                        <option value="chaotic-evil">Chaotic Evil</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered charStats">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Stats</th>
+                                            <th scope="col">#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Physical power and attack.">STR</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Health points, stamina, and vital force">CON</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Hand-eye coordination, agility, reflexes, and balance.">DEX</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Measure of how well one learns and reasons; useful for magic users.">INT</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Common sense, perception, empathy.">WIS</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Personality, persuasiveness, and leadership.">CHA</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>PARTY TABLE PLACEHOLDER</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                            <div class="card border-dark mb-3" style="max-width: 32rem;">
+                                <div class="card-header">Information</div>
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title"><span class="infoTitle">Example</span></h5>
+                                    <p class="card-text"><span class="infoText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque orci turpis, tristique sit amet lacinia et, eleifend eget ante. Vivamus luctus tortor magna, vel aliquam mauris molestie vel.</span></p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-2">
+                <button class="btn btn-primary btn-lg" id="toGame">Go to Game</button>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-primary btn-lg" id="saveQuit">Save & Quit</button>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+</html>
