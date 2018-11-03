@@ -9,6 +9,7 @@
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
      <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+     <script src="../js/start.js"></script>
      <style src="../style.css"></style>
      <title>DnD Campaign</title>
    </head>
@@ -17,12 +18,13 @@
     <div class="container">
             <img src="../images/Landing Page/mainLogo.png" style="width:960px;height:800px">
 
-            <a href="default.asp">
-                    <img src="../images/Landing Page/newCamp.png" style="width:470px;height:60px;border:0;"></a>
+            <button type="button" data-target="../html/player.html">
+              <img src="../images/Landing Page/newCamp.png">
+                                  </button>
                    ||
                   
-    <button type="button" img src="../images/Landing Page/continue.png" data-toggle="modal" data-target="#myModal">
-                            Open modal
+    <button type="button"  data-toggle="modal" data-target="#myModal">
+      <img src="../images/Landing Page/continue.png">
                           </button>
                           
                           <!-- The Modal -->
@@ -33,9 +35,9 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                   <class="modal-title">
-                                        <img src="../images/Landing Page/continue.png"  style="width:470px;height:60px;border:0;">
+                                        <img src="../images/Landing Page/continue.png">
                                       
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <button type="button" class="close" data-dismiss="modal"></button>
                                 </div>
                           
                                 <!-- Modal body -->
