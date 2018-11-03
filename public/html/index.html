@@ -11,54 +11,77 @@
      <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
      <script src="../js/start.js"></script>
      <style src="../style.css"></style>
-     <title>DnD Campaign</title>
+     <title>D&D Campaign</title>
    </head>
 
    <body>
-    <div class="container">
-            <img src="../images/Landing Page/mainLogo.png" style="width:960px;height:800px">
 
-            <button type="button" data-target="../html/player.html">
-              <img src="../images/Landing Page/newCamp.png">
-                                  </button>
+    <head>
+        <style>
+            body {
+              background-color: rgb(129, 34, 34);
+            }
+            h5 {
+              font-family: 'MedievalSharp', cursive;
+              text-align: center;
+            }
+            p  {
+              color: black;
+              font-family: 'MedievalSharp', cursive;
+            }
+            
+          </style>
+    </head>
+
+    <div class="container">
+            <img src="../images/Landing Page/mainLogo.png" class="rounded" style="width:960px;height:800px">
+    </div>
+    <!-- <button type="button" data-target="../html/player.html">
+    <img src="../images/Landing Page/newCamp.png">
+    </button> -->
+
+    <div class="container2">
+    <form action="../html/player.html" class="inline">
+      <button class="button" ><img src="../images/Landing Page/newCamp.png" class="rounded"></button>
+        </form>
                    ||
                   
-    <button type="button"  data-toggle="modal" data-target="#myModal">
-      <img src="../images/Landing Page/continue.png">
-                          </button>
+    <button type="button" class="inline" data-toggle="modal" data-target="#myModal">
+      <img src="../images/Landing Page/continue.png" class="rounded">
+      </button>
+    </div>                   
+      <!-- The Modal -->
+     <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
                           
-                          <!-- The Modal -->
-                          <div class="modal fade" id="myModal">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                          
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                  <class="modal-title">
-                                        <img src="../images/Landing Page/continue.png">
+     <!-- Modal Header -->
+       <div class="modal-header">
+        <class="modal-title">
+          <img src="../images/Landing Page/continue.png">
                                       
-                                  <button type="button" class="close" data-dismiss="modal"></button>
-                                </div>
-                          
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                        <p>Enter your game ID</p>
-                                        <!-- font-family: 'MedievalSharp', cursive; -->
-                                </div>
+      <button type="button" class="close" data-dismiss="modal"></button>
+           </div>
+      
+      <!-- Modal body -->
+       <div class="modal-body">
+        <p>Enter your game ID</p>
+         <!-- font-family: 'MedievalSharp', cursive; -->
+          </div>
                           
                                 <!-- Modal footer -->
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Resume Game</button>
-                                </div>
-                          
-                              </div>
-                            </div>
-                          </div>
+       <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><h5>Resume Game</h5>
+   </button>
+             </div>
+         </div>
+      </div>
+    </div>
 
 
-<footer class=" center footer">
-        <div class="container">
-          <p>Copyright Silver Snakes © 2018</p> 
+<footer class="footer">
+        
+         <h5>Copyright Silver Snakes © 2018</h5> 
         </div>
       </footer>
 
