@@ -9,6 +9,7 @@
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
      <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+     <script src="../js/start.js"></script>
      <style src="../style.css"></style>
      <title>DnD Campaign</title>
    </head>
@@ -17,20 +18,42 @@
     <div class="container">
             <img src="../images/Landing Page/mainLogo.png" style="width:960px;height:800px">
 
-            <a href="default.asp">
-                    <img src="../images/Landing Page/newCamp.png" style="width:470px;height:60px;border:0;"></a>
+            <button type="button" data-target="../html/player.html">
+              <img src="../images/Landing Page/newCamp.png">
+                                  </button>
                    ||
-                  <a href="default.asp">
-                        <img src="../images/Landing Page/continue.png"  style="width:470px;height:60px;border:0;">
-                      </a>
-    </div>
-       
-    <div class = "button">
- 	
-           
-         
-
-</div>
+                  
+    <button type="button"  data-toggle="modal" data-target="#myModal">
+      <img src="../images/Landing Page/continue.png">
+                          </button>
+                          
+                          <!-- The Modal -->
+                          <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                          
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <class="modal-title">
+                                        <img src="../images/Landing Page/continue.png">
+                                      
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                </div>
+                          
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                        <p>Enter your game ID</p>
+                                        <!-- font-family: 'MedievalSharp', cursive; -->
+                                </div>
+                          
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Resume Game</button>
+                                </div>
+                          
+                              </div>
+                            </div>
+                          </div>
 
 
 <footer class=" center footer">
@@ -40,35 +63,6 @@
       </footer>
 
       
-
-      <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Continue a Campaign</h4>
-                <div class="divider"></div>
-                <h5 id="userMatch"></h5>
-                <img id="userMatchImage" class="materialboxed" width="650" src="">
-            </div>
-        </div>  
-    
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('select').material_select();
-                $('.modal').modal({
-                    dismissible: false, // Modal can be dismissed by clicking outside of the modal
-                    opacity: .5, // Opacity of modal background
-                    inDuration: 300, // Transition in duration
-                    outDuration: 200, // Transition out duration
-                    startingTop: '4%', // Starting top style attribute
-                    endingTop: '10%' // Ending top style attribute
-                });
-            });
-            // Activate submit button
-            $('#submitButton').on('click', function(event) {
-                event.preventDefault();
-
-    
-    
-
  
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
