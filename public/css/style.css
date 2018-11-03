@@ -1,7 +1,12 @@
 .button {
-    box-align: center;
+    align-content: center;
 }
 
-p {
+.footer {
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+}
+
+h1 {
     font-family: 'MedievalSharp', cursive;
 }
