@@ -1,12 +1,34 @@
-.button {
-    align-content: center;
-}
-
-.footer {
+body {
+      background-image: url("../images/Landing Page/mainPage.jpg");
+      background-size: 100%;
+    }
+h1{
     font-family: 'MedievalSharp', cursive;
-    text-align: center;
-}
+    text-align: left;
+    text-shadow: ghostwhite 2px 2px;
+    color: rgb(202, 31, 25);
+    font-size: 100px;
+    margin-left: 10%;
+    margin-top: 10px;
 
-h1 {
-    font-family: 'MedievalSharp', cursive;
 }
+ h5 {
+      font-family: 'MedievalSharp', cursive;
+      text-align: center;
+    }
+p  {
+      color: black;
+      font-family: 'MedievalSharp', cursive;
+    }
+.container2{
+      width: 100px;
+      margin-left: 10%;
+      margin-top: 100px;
+    }
+
+.footer{
+    color: ghostwhite;
+    margin-top: 27%;
+    
+}
+    
