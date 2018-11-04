@@ -7,6 +7,7 @@ h1{
     text-align: left;
     text-shadow: ghostwhite 2px 2px;
     color: rgb(202, 31, 25);
+    opacity: 0.7;
     font-size: 100px;
     margin-left: 10%;
     margin-top: 10px;
@@ -24,6 +25,7 @@ p  {
       width: 100px;
       margin-left: 10%;
       margin-top: 100px;
+      opacity: 0.7;
     }
 
 .footer{
