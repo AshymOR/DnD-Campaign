@@ -1,0 +1,36 @@
+
+body {
+    background-image: url("../images/Landing Page/results.jpg");
+        }
+h5 {
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+        }
+p  {
+    color: black;
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+     font-size: 30px;
+        }
+.figure-caption {
+    color: black;
+    font-family: 'MedievalSharp', cursive;
+        }
+          
+.table{
+    color: black;
+    font-family: 'MedievalSharp', cursive;
+    background-color: ghostwhite;
+    margin-right: 30%;
+    margin-left: 50%;
+        }
+h1{
+    color: black;
+    font-family: 'MedievalSharp', cursive;
+        }
+.figure{
+    align-self: center;
+        }
+           
+ 
+    
