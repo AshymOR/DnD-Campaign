@@ -1,0 +1,62 @@
+body {
+background-image: url(https://horrorgeeklife.com/wp-content/uploads/2017/12/dungeons-dragons.jpg);
+background-size: 100%;
+}
+h1 {
+font-family: 'MedievalSharp', cursive;
+color: rgb(104, 30, 28);
+
+}
+h4{
+font-family: 'MedievalSharp', cursive;
+color: rgb(104, 30, 28);
+}
+p  {
+color: black;
+font-family: 'MedievalSharp', cursive;
+}
+.container{
+color: rgb(104, 30, 28);
+background-color: whitesmoke;
+font-family: 'MedievalSharp', cursive;
+border-style: ridge;
+margin: 3% auto;
+padding: 1%;
+}
+#toGame {
+    font-family: 'MedievalSharp', cursive;
+}
+
+#saveQuit {
+    font-family: 'MedievalSharp', cursive;
+}
+
+.infoTitle{
+    font-family: 'MedievalSharp', cursive;
+}
+.card-header {
+    font-family: 'MedievalSharp', cursive;
+}
+.input-group-text{
+    font-family: 'MedievalSharp', cursive;
+}
+.form-control{
+    font-family: 'MedievalSharp', cursive;
+}
+.table{
+    font-family: 'MedievalSharp', cursive;
+    color: rgb(104, 30, 28);
+    background-color: ghostwhite;
+
+}
+.charPortrait {
+    padding: 1%;
+}
+#row{
+    font-family: 'MedievalSharp', cursive;
+}
+.footer{
+    color:  ghostwhite;
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+}

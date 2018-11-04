@@ -1,0 +1,18 @@
+body {
+    background-image: URL(../images/backDrops/Dungeon/Dungeon4.jpg);
+    background-size: 100%;
+    font-family: 'MedievalSharp', cursive;
+    color: rgb(104, 30, 28);
+}
+.container {
+    color: rgb(104, 30, 28);
+    background-color: whitesmoke;
+    border-style: ridge;
+    margin: 3% auto;
+    padding: 1%;
+}
+.footer{
+    color:  ghostwhite;
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+}
