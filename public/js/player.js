@@ -1,3 +1,13 @@
+// ON LOAD:
+// Make this API call:
+//          $.post("/api/game").then(function (response) {
+    //         console.log(response.id);
+    //         gameId = response.id
+
+    //         $.get("/player");
+    //     });
+var gameId;
+
 $(document).ready(function () {
     $(".glyphicon-ok").hide();
     $("#editToggle").click(function () {
@@ -14,12 +24,33 @@ $(document).ready(function () {
     $(".charRace").click(function() {
         let charRace = $(".charRace").val();
         let charGender = $(".charGender").val();
+        function statRolls () {
+            charSTR = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
+            charDEX = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
+            charCON = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
+            charINT = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
+            charWIS = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
+            charCHA = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
+        }
         console.log(charRace);
         if (charRace == "dragonborn") {
             $(".infoTitle").empty();
             $(".infoTitle").html("Dragonborn");
             $(".infoText").empty();
             $(".infoText").append("Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains. You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR + parseInt(2));
+            $(".charDEX").append(charDEX);
+            $(".charCON").append(charCON);
+            $(".charINT").append(charINT);
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA + parseInt(1));
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Dragonborn/Male_Dragonborn.png");
@@ -34,6 +65,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Dwarf");
             $(".infoText").empty();
             $(".infoText").append("Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order. You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR);
+            $(".charDEX").append(charDEX);
+            $(".charCON").append(charCON + parseInt(2));
+            $(".charINT").append(charINT);
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Dwarf/Male_Dwarf.png");
@@ -48,6 +92,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Gnome");
             $(".infoText").empty();
             $(".infoText").append("Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious. You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR);
+            $(".charDEX").append(charDEX);
+            $(".charCON").append(charCON);
+            $(".charINT").append(charINT + parseInt(2));
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Gnome/Male_Gnome.png");
@@ -62,6 +119,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Elf");
             $(".infoText").empty();
             $(".infoText").append("Elves love freedom, variety, and self-expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not. The drow are an exception; their exile has made them vicious and dangerous. Drow are more often evil than not. You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR);
+            $(".charDEX").append(charDEX + parseInt(2));
+            $(".charCON").append(charCON);
+            $(".charINT").append(charINT);
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Elf/Male_Elf.png");
@@ -76,6 +146,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Half-Elf");
             $(".infoText").empty();
             $(".infoText").append("Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others' demands, and sometimes prove unreliable, or at least unpredictable. You can speak, read, and write Common, Elvish, and one extra language of your choice.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR);
+            $(".charDEX").append(charDEX);
+            $(".charCON").append(charCON);
+            $(".charINT").append(charINT);
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA + parseInt(2));
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Half-Elf/Male_Half_Elf.png");
@@ -90,6 +173,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Halfling");
             $(".infoText").empty();
             $(".infoText").append("Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways. You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR);
+            $(".charDEX").append(charDEX + parseInt(2));
+            $(".charCON").append(charCON);
+            $(".charINT").append(charINT);
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Halfling/Male_Halfling.png");
@@ -104,6 +200,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Half-Orc");
             $(".infoText").empty();
             $(".infoText").append("Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil. You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR + parseInt(2));
+            $(".charDEX").append(charDEX);
+            $(".charCON").append(charCON + parseInt(1));
+            $(".charINT").append(charINT);
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Half-Orc/Male_Half_Orc.png");
@@ -118,6 +227,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Human");
             $(".infoText").empty();
             $(".infoText").append("Humans tend toward no particular alignment. The best and the worst are found among them. You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR + parseInt(1));
+            $(".charDEX").append(charDEX + parseInt(1));
+            $(".charCON").append(charCON + parseInt(1));
+            $(".charINT").append(charINT + parseInt(1));
+            $(".charWIS").append(charWIS + parseInt(1));
+            $(".charCHA").append(charCHA + parseInt(1));
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Human/Male_Human.jpg");
@@ -132,6 +254,19 @@ $(document).ready(function () {
             $(".infoTitle").html("Tiefling");
             $(".infoText").empty();
             $(".infoText").append("Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment. You can speak, read, and write Common and Infernal.");
+            statRolls();
+            $(".charSTR").empty();
+            $(".charDEX").empty();
+            $(".charCON").empty();
+            $(".charINT").empty();
+            $(".charWIS").empty();
+            $(".charCHA").empty();
+            $(".charSTR").append(charSTR);
+            $(".charDEX").append(charDEX);
+            $(".charCON").append(charCON);
+            $(".charINT").append(charINT + parseInt(1));
+            $(".charWIS").append(charWIS);
+            $(".charCHA").append(charCHA + parseInt(2));
             if (charGender == "male") {
                 $(".charPortrait").empty();
                 $(".charPortrait").attr("src", "../images/Tiefling/Male_Tiefling.png");
@@ -295,8 +430,35 @@ $(document).ready(function () {
         }
     });
 
-    // STILL TO DO: determine on which side to roll character stats and when to update them
-    // STILL TO DO: determine when to update & call the player API
-    // STILL TO DO: build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
+    // ON SUBMIT, give to player API
+    $("#submitChar").click(function(event) {
+        event.preventDefault();
+        var newCharacter = {
+            name: $("#playerName").val().trim(),
+            gender: $(".charGender").val().trim(),
+            race: $(".charRace").val().trim(),
+            class: $(".charClass").val().trim(),
+            alignment: $(".charAlign").val().trim(),
+            portrait: $(".charPortrait").val().trim(),
+            str: $(".charSTR").val().trim(),
+            dex: $(".charDEX").val().trim(),
+            con: $(".charCON").val().trim(),
+            int: $(".charINT").val().trim(),
+            wis: $(".charWIS").val().trim(),
+            cha: $(".charCHA").val().trim(),
+            hp: parseInt($(".charCON").val().trim() + parseInt(100))
+        };
+        $.post("/api/player", newCharacter);
+    });
+
+    $("#toGame").click(function(event) {
+        event.preventDefault();
+        var newGame = {
+            // WHATEVER NEW GAME INFO IS NEEDED FROM THE PLAYER GOES HERE
+        };
+        $.post("/api/game", newGame);
+    })
+
     // STILL TO DO: build and hook up the game code modal
+    // STILL TO DO (stretch): build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
 });

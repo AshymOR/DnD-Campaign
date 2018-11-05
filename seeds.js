@@ -25,15 +25,3 @@ db.Player.create({
     GameId: 2
 });
 
-db.Location_.create({
-    BackgroundURL: "#",
-    GameId: 1
-});
-
-db.Enemy.create({
-    name: "Cruz",
-    hp: 89,
-    atk: 2,
-    spriteURL: "#",
-    LocationId: 1
-})

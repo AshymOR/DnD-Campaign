@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>D&D Campaign | Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -12,25 +13,26 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/game.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
-    <script src="bootstrap.min.js"/>
-    
     <script src="../js/game.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser.js"></script>
+    <script src="../js/battle.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="mainSection">
         <div class="row">
             <div class="col-lg-3">
                 <div class="card party-list">
-                    <div class="card-header">
+                    <div class="card-header" id="woodBG">
                         <h3>Party List</h3>
+                        <h1>Delete This</h1>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="woodBG">
                         <ul id="partyList" class="list-group"></ul>
                             <div class="card">
-                                <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Future Sprite">
+                                <img class="card-img-top card" src=".../100px180/?text=Image cap" alt="Future Sprite">
                                 <div class="card-body">
-                                    <h5 class="card-title">John Smith</h5>
-                                    <p class="card-text">
+                                    <h5 class="card-title card">John Smith</h5>
+                                    <p class="card-text card">
                                         <strong>HP:</strong> ##/##
                                         <br>
                                         <strong>MP:</strong> ##/##
@@ -57,7 +59,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card room-info">
-                            <div class="card-header">
+                            <div class="card-header" id="woodBG">
                                 <h4 class="roomName">Dusty Room</h4>
                             </div>
                             <div class="card-body">
@@ -71,11 +73,11 @@
                 <br>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card adventure-log">
-                            <div class="card-header">
-                                <h2>Adventure Log</h2>
+                        <div class="adventure-log">
+                            <div class="card-header" id="adventureLog">
+                                <h6>Adventure Log</h6>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" id="adventureLog">
                                 <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
                             </div>
                         </div>
@@ -91,8 +93,8 @@
     <!-- Battle Modal -->
     <div class="modal fade battle-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <!-- THIS IS GONNA TAKE SOME DOIN' -->
+            <div class="modal-content battle-div">
+                <!-- GAME GOES HERE -->
             </div>
         </div>
     </div>

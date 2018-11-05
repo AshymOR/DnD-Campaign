@@ -1,18 +1,14 @@
 // API routes to go here
 
 var db = require("../models");
-var locations = require("../locations");
+var locations = require("../public/js/locations");
 
 module.exports = function (app) {
     app.get("/api/game/:id", function (req, res) {
         // // 1. Add a join to include all of each Author's Posts
         db.Game.findAll({
             include: [
-                db.Player,
-                {
-                    model: db.Location_,
-                    include: [db.Enemy]
-                }
+                db.Player
             ],
             where: {
                 id: req.params.id
@@ -25,10 +21,18 @@ module.exports = function (app) {
     // Creates a new player
     app.post("/api/player/", function (req, res) {
 
-        db.Player.create(req.body).then(function(newPlayer) {
+        db.Player.create({
+            name: req.body.name,
+            gender: req.body.gender,
+            race: req.body.race,
+            class: req.body.class,
+            hp: req.body.hp,
+            atk: req.body.atk,
+            spriteURL: req.body.spriteURL,
+            GameId: req.body.GameId
+        }).then(function(newPlayer) {
             res.json(newPlayer);
         });
-
     });
 
     // Creates a new game

@@ -1,6 +1,13 @@
 body {
-background-image: url(https://horrorgeeklife.com/wp-content/uploads/2017/12/dungeons-dragons.jpg);
-background-size: 100%;
+    background-color: transparent;
+}
+html{
+    background-image: url(https://horrorgeeklife.com/wp-content/uploads/2017/12/dungeons-dragons.jpg);
+    height: 100%;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1 {
 font-family: 'MedievalSharp', cursive;
