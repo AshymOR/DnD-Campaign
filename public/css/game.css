@@ -6,7 +6,8 @@ body {
 }
 .container {
     color: rgb(104, 30, 28);
-    background-color: whitesmoke;
+    background-image: url(../images/backDrops/dungeonWall.png);
+    background-position: center;
     border-style: ridge;
     margin: 3% auto;
     padding: 1%;
@@ -15,4 +16,15 @@ body {
     color:  ghostwhite;
     font-family: 'MedievalSharp', cursive;
     text-align: center;
+}
+.card{
+    background-color: rgb(245, 245, 245, .7)
+
+}
+
+#adventureLog{
+    background-image: url(../images/backDrops/adventureLog.jpg);
+    background-position: center;
+    color: rgb(104, 30, 28);
+    opacity: 1;
 }
