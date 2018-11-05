@@ -1,9 +1,9 @@
 $(document).ready(function () {
     // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
-    // $.get("/api/tables", function (data) {
-        // console.log(data);
-        // if (data) {
-        //     for (i in data) {
+    $.get("/api/player", function (data) {
+        console.log(data);
+        if (data) {
+            for (i in data) {
                 // <ul id="partyList" class="list-group"></ul>
                 // <div class="card">
                 // <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Future Sprite">
@@ -17,81 +17,43 @@ $(document).ready(function () {
                 // </div>
                 // </div>
                 // </ul>
-                
-                // var resObj = data[i];
-                // var resDiv = $("<li class='list-group-item mt-4'>");
+                var charObj = data[i];
 
-                // var hr = $("<hr>")
-                // var id = $("<h2>")
-                // var name = $("<h2>")
-                // var email = $("<h2>")
-                // var phone = $("<h2>")
+                var charDiv = $("<li class='list-group-item'>");
 
-                // var number = $("<h2>")
-                // number.text("Table #" + i + 1);
-                // resDiv.append(number);
+                var charCard = $("<div class='card'>");
+                var charSprite = $("<img class='card-img-top' src='" + charObj.SpriteURL + "' alt='Player Sprite'>");
+                var charCardTwo = $("<div class='card-body'");
+                var charName = $("<h5 class='card-title'>" + charObj.playerName + "</h5>");
+                var charHR = $("<hr>");
+                var charHP = $("<p class='card-text'><strong>HP: </strong>" + charObj.HP + "</p>");
 
-                // hr.text(resObj.hr);
-                // resDiv.append(hr)
-
-                // id.text(resObj.id);
-                // resDiv.append(id);
-
-                // name.text(resObj.name);
-                // resDiv.append(name)
-
-                // email.text(resObj.email);
-                // resDiv.append(email)
-
-                // phone.text(resObj.phone);
-                // resDiv.append(phone);
-
-                // $("#reservationsContainer").append(resDiv);
-    //         }
-    //     }
-    // });
+                charDiv.append(charCard, charSprite, charCardTwo, charName, charHR, charHP);
+                $("#partyList").append(charDiv);
+            }
+        }
+    });
 
     // DO IT AGAIN FOR ROOM INFO
-    // $.get("/api/tables", function (data) {
-    //     console.log(data);
-    //     if (data) {
-    //         for (i in data) {
+    $.get("/api/game", function (data) {
+        console.log(data);
+        if (data) {
+            for (i in data) {
                 // <ul id="roomThings" class="list-group">
                 // <li class="list-group-item">GOBLIN</li>
                 // </ul>
 
-                // var resObj = data[i];
-                // var resDiv = $("<li class='list-group-item mt-4'>");
+                var roomObj = data[i];
 
-                // var hr = $("<hr>")
-                // var id = $("<h2>")
-                // var name = $("<h2>")
-                // var email = $("<h2>")
-                // var phone = $("<h2>")
+                var roomDiv = $("<li class='list-group-item'>");
 
-                // var number = $("<h2>")
-                // number.text("Table #" + i + 1);
-                // resDiv.append(number);
+                var roomItem = $(roomObj.enemy.name);
 
-                // hr.text(resObj.hr);
-                // resDiv.append(hr)
-
-                // id.text(resObj.id);
-                // resDiv.append(id);
-
-                // name.text(resObj.name);
-                // resDiv.append(name)
-
-                // email.text(resObj.email);
-                // resDiv.append(email)
-
-                // phone.text(resObj.phone);
-                // resDiv.append(phone);
-
-                // $("#reservationsContainer").append(resDiv);
-    //         }
-    //     }
-    // });
+                roomDiv.append(roomItem);
+                $("#roomThings").append(roomDiv);
+            }
+        }
+    });
 
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
     // <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
