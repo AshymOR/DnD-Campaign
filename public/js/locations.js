@@ -14,7 +14,7 @@ function Enemy(name, hp, atk, spriteURL) {
 //var troll = new Enemy("Troll", 100, 5, "#");
 
 //Enemy to be used for basic final product
-var lich = new Enemy("Lich", 135, 7, "../images/Sprites/TimeFantasy_Monsters/2x/$monster_lich.png")
+var lich = new Enemy("Lich", 135, 17, "../images/Sprites/TimeFantasy_Monsters/2x/$monster_lich.png")
 
 var firstBranch = new Location("Fork in the Road", null, "#");
 var dungeon = new Location("Dungeon", lich, "../images/BackDrops/Dungeon/Dungeon3.png");

@@ -1,7 +1,14 @@
-body {
-      background-image: url("../images/Landing Page/mainPage.jpg");
-      background-size: 100%;
+body{
+    background-color: transparent;
     }
+html {
+    background-image: url("../images/Landing Page/mainPage.jpg");
+    height: 100%;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 h1{
     font-family: 'MedievalSharp', cursive;
     text-align: left;
