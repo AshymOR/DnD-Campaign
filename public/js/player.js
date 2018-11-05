@@ -448,8 +448,16 @@ $(document).ready(function () {
             cha: $(".charCHA").val().trim(),
             hp: parseInt($(".charCON").val().trim() + parseInt(100))
         };
-        $.post("/player", newCharacter); // FILL IN THE API ROUTE
+        $.post("/api/player", newCharacter);
     });
+
+    $("#toGame").click(function(event) {
+        event.preventDefault();
+        var newGame = {
+            // WHATEVER NEW GAME INFO IS NEEDED FROM THE PLAYER GOES HERE
+        };
+        $.post("/api/game", newGame);
+    })
 
     // STILL TO DO: build and hook up the game code modal
     // STILL TO DO (stretch): build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
