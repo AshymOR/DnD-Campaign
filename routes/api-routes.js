@@ -8,9 +8,7 @@ module.exports = function (app) {
         // // 1. Add a join to include all of each Author's Posts
         db.Game.findAll({
             include: [
-                db.Player,
-                db.locationArray,
-                db.currentLocI
+                db.Player
             ],
             where: {
                 id: req.params.id
