@@ -118,27 +118,27 @@
                                     <tbody>
                                         <tr>
                                             <td data-toggle="tooltip" data-placement="right" title="Physical power and attack.">STR</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td data-toggle="tooltip" data-placement="right" title="Health points, stamina, and vital force">CON</td>
-                                            <td></td>
+                                            <td class="charSTR"></td>
                                         </tr>
                                         <tr>
                                             <td data-toggle="tooltip" data-placement="right" title="Hand-eye coordination, agility, reflexes, and balance.">DEX</td>
-                                            <td></td>
+                                            <td class="charDEX"></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-toggle="tooltip" data-placement="right" title="Health points, stamina, and vital force">CON</td>
+                                            <td class="charCON"></td>
                                         </tr>
                                         <tr>
                                             <td data-toggle="tooltip" data-placement="right" title="Measure of how well one learns and reasons; useful for magic users.">INT</td>
-                                            <td></td>
+                                            <td class="charINT"></td>
                                         </tr>
                                         <tr>
                                             <td data-toggle="tooltip" data-placement="right" title="Common sense, perception, empathy.">WIS</td>
-                                            <td></td>
+                                            <td class="charWIS"></td>
                                         </tr>
                                         <tr>
                                             <td data-toggle="tooltip" data-placement="right" title="Personality, persuasiveness, and leadership.">CHA</td>
-                                            <td></td>
+                                            <td class="charCHA"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -174,8 +174,11 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-2">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3">
+                <button class="btn btn-alert btn-lg" id="submitChar">Submit Character</button>
+            </div>
+            <div class="col-lg-3">
                 <form action="../html/game.html" class="inline">
                 <button class="btn btn-alert btn-lg" id="toGame">Go to Game</button>
                 </form>
@@ -183,7 +186,7 @@
             <div class="col-lg-2">
                 <button class="btn btn-alert btn-lg" id="saveQuit">Save & Quit</button>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-2"></div>
         </div>
     </div>
     <footer class="footer">    
