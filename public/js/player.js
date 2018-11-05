@@ -294,4 +294,9 @@ $(document).ready(function () {
             $(".infoText").empty();
         }
     });
+
+    // STILL TO DO: determine on which side to roll character stats and when to update them
+    // STILL TO DO: determine when to update & call the player API
+    // STILL TO DO: build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
+    // STILL TO DO: build and hook up the game code modal
 });
