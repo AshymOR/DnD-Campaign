@@ -9,10 +9,8 @@ module.exports = function (app) {
         db.Game.findAll({
             include: [
                 db.Player,
-                {
-                    model: db.Location_,
-                    include: [db.Enemy]
-                }
+                db.locationArray,
+                db.currentLocI
             ],
             where: {
                 id: req.params.id
