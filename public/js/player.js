@@ -1,3 +1,13 @@
+// ON LOAD:
+// Make this API call:
+//          $.post("/api/game").then(function (response) {
+    //         console.log(response.id);
+    //         gameId = response.id
+
+    //         $.get("/player");
+    //     });
+var gameId;
+
 $(document).ready(function () {
     $(".glyphicon-ok").hide();
     $("#editToggle").click(function () {

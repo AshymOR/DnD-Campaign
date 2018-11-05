@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!--Import Bootstrap-->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
      <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
-     <script src="index.js"></script>
+     <script src="../js/index.js"></script>
      <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
      <title>D&D Campaign</title>
    </head>
@@ -29,13 +29,18 @@
 </header>
 
     <div class="container2">
-    <form action="../html/player.html" class="inline">
-      <button class="button" ><img src="../images/Landing Page/newCamp.png" class="rounded"></button>
+    <div class="inline">
+      <a href="/player/">
+        <button id="new-game" class="button" action="/player">
+          <img src="../images/Landing Page/newCamp.png" class="rounded">
+        </button>
+      </a>
+      
             
-    <button type="button" class="inline" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="inline" data-toggle="modal" data-target="#myModal">
       <img src="../images/Landing Page/continue.png" class="rounded">
       </button>
-    </form>
+    </div>
     </div>                   
       <!-- The Modal -->
      <div class="modal fade" id="myModal">
@@ -44,8 +49,9 @@
                           
      <!-- Modal Header -->
        <div class="modal-header">
-        <class="modal-title">
+        <div class="modal-title">
           <img src="../images/Landing Page/continue.png">
+        </div>
                                       
       <button type="button" class="close" data-dismiss="modal"></button>
            </div>
