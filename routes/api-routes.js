@@ -21,10 +21,18 @@ module.exports = function (app) {
     // Creates a new player
     app.post("/api/player/", function (req, res) {
 
-        db.Player.create(req.body).then(function(newPlayer) {
+        db.Player.create({
+            name: req.body.name,
+            gender: req.body.gender,
+            race: req.body.race,
+            class: req.body.class,
+            hp: req.body.hp,
+            atk: req.body.atk,
+            spriteURL: req.body.spriteURL,
+            GameId: req.body.GameId
+        }).then(function(newPlayer) {
             res.json(newPlayer);
         });
-
     });
 
     // Creates a new game
