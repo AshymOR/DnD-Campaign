@@ -10,27 +10,40 @@ p  {
     color: black;
     font-family: 'MedievalSharp', cursive;
     text-align: center;
-     font-size: 30px;
+    font-size: 30px;
         }
 .figure-caption {
     color: black;
     font-family: 'MedievalSharp', cursive;
         }
           
+.card{
+    color: black;
+    font-family: 'MedievalSharp', cursive;
+    margin-right: 30%;
+    margin-left: 50%;
+    width: 500px;
+    border: black 2px solid;
+        }
+
 .table{
     color: black;
     font-family: 'MedievalSharp', cursive;
     background-color: ghostwhite;
     margin-right: 30%;
     margin-left: 50%;
-        }
+    width: 500px;
+    border: black 2px solid;
+
+}
+
 h1{
     color: black;
     font-family: 'MedievalSharp', cursive;
+    margin-right: 30%;
+    margin-left: 50%;
         }
-.figure{
-    align-self: center;
-        }
-           
+
+
  
     

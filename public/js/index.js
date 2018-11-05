@@ -2,4 +2,7 @@ $(document).ready(function(){
     $("#myBtn").click(function(){
         $("#myModal").modal();
     });
-});// index.html logic to go here
+});
+
+
+//Once modal opens, need to be able to click to db to gather saved player game with the "continue campaign" button//
