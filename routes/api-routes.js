@@ -1,7 +1,7 @@
 // API routes to go here
 
 var db = require("../models");
-var locations = require("../locations");
+var locations = require("../public/js/locations");
 
 module.exports = function (app) {
     app.get("/api/game/:id", function (req, res) {
