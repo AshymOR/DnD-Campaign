@@ -1,9 +1,9 @@
 $(document).ready(function () {
     // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
-    $.get("/api/tables", function (data) {
-        console.log(data);
-        if (data) {
-            for (i in data) {
+    // $.get("/api/tables", function (data) {
+        // console.log(data);
+        // if (data) {
+        //     for (i in data) {
                 // <ul id="partyList" class="list-group"></ul>
                 // <div class="card">
                 // <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Future Sprite">
@@ -47,15 +47,15 @@ $(document).ready(function () {
                 // resDiv.append(phone);
 
                 // $("#reservationsContainer").append(resDiv);
-            }
-        }
-    });
+    //         }
+    //     }
+    // });
 
     // DO IT AGAIN FOR ROOM INFO
-    $.get("/api/tables", function (data) {
-        console.log(data);
-        if (data) {
-            for (i in data) {
+    // $.get("/api/tables", function (data) {
+    //     console.log(data);
+    //     if (data) {
+    //         for (i in data) {
                 // <ul id="roomThings" class="list-group">
                 // <li class="list-group-item">GOBLIN</li>
                 // </ul>
@@ -89,9 +89,9 @@ $(document).ready(function () {
                 // resDiv.append(phone);
 
                 // $("#reservationsContainer").append(resDiv);
-            }
-        }
-    });
+    //         }
+    //     }
+    // });
 
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
     // <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
