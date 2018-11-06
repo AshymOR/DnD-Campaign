@@ -11,7 +11,7 @@ $(document).ready(function () {
         $(this).parents().siblings("input").prop("readonly", true); //turns the readonly off
     }
     });
-    $(".charRace").click(function() {
+    $(".charRace").change(function() {
         let charRace = $(".charRace").val();
         let charGender = $(".charGender").val();
         function statRolls () {
@@ -271,7 +271,7 @@ $(document).ready(function () {
             $(".infoText").empty();
         }
     });
-    $(".charClass").click(function() {
+    $(".charClass").change(function() {
         let charClass = $(".charClass").val();
         console.log(charClass);
         if (charClass == "barbarian") {
@@ -357,7 +357,7 @@ $(document).ready(function () {
             $(".infoText").empty();
         }
     });
-    $(".charAlign").click(function() {
+    $(".charAlign").change(function() {
         let charAlign = $(".charAlign").val();
         console.log(charAlign);
         if (charAlign == "lawful-good") {
