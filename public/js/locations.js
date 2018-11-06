@@ -28,4 +28,6 @@ var finalChamber = new Location("Secret Chamber", null, "../images/backDrops/Dun
 
 var locations = [startingPoint, bossRoom, dungeonEntrance, bossRoom, finalChamber];
 
+locations = JSON.stringify(locations);
+
 module.exports = locations;
