@@ -63,7 +63,16 @@ padding: 1%;
     font-family: 'MedievalSharp', cursive;
 }
 .footer{
-    color:  ghostwhite;
     font-family: 'MedievalSharp', cursive;
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+        
+}
+
+h5{
+    font-family: 'MedievalSharp', cursive;
+    color: ghostwhite; 
 }

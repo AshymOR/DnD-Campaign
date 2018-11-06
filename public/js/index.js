@@ -8,6 +8,9 @@ $(document).ready(function(){
     });
 });
 
+//I want to validate player name in the modal//
+
+
 
 //Once modal opens, need to be able to click to db to gather saved player game with the "continue campaign" button//
 
