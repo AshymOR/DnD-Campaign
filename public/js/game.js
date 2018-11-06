@@ -78,41 +78,6 @@ $(document).ready(function () {
         });
     }
 
-    // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
-    // $.get("/api/player/" + gameId, function (data) {
-    //     console.log(data);
-    //     if (data) {
-    //         for (i in data) {
-    //             // <ul id="partyList" class="list-group"></ul>
-    //             // <div class="card">
-    //             // <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Future Sprite">
-    //             // <div class="card-body">
-    //             // <h5 class="card-title">John Smith</h5>
-    //             // <p class="card-text">
-    //             // <strong>HP:</strong> ##/##
-    //             // <br>
-    //             // <strong>MP:</strong> ##/##
-    //             // </p>
-    //             // </div>
-    //             // </div>
-    //             // </ul>
-    //             var charObj = data[i];
-
-    //             var charDiv = $("<li class='list-group-item'>");
-
-    //             var charCard = $("<div class='card'>");
-    //             var charSprite = $("<img class='card-img-top' src='" + charObj.SpriteURL + "' alt='Player Sprite'>");
-    //             var charCardTwo = $("<div class='card-body'");
-    //             var charName = $("<h5 class='card-title'>" + charObj.playerName + "</h5>");
-    //             var charHR = $("<hr>");
-    //             var charHP = $("<p class='card-text'><strong>HP: </strong>" + charObj.HP + "</p>");
-
-    //             charDiv.append(charCard, charSprite, charCardTwo, charName, charHR, charHP);
-    //             $("#partyList").append(charDiv);
-    //         }
-    //     }
-    // });
-
     // DO IT AGAIN FOR ROOM INFO
     $.get("/api/game", function (data) {
         console.log(data);
