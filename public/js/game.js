@@ -2,7 +2,7 @@ $(document).ready(function () {
     // get GameId from localStorage
     var gameId = localStorage.GameId;
     // log the GameId
-    console.log(gameId);
+    console.log("GameId: " + gameId);
 
     // if the GameId from localStorage isn't null
     if (gameId) {
@@ -55,7 +55,10 @@ $(document).ready(function () {
 
             // 1. Figure out the game's location
             var currentLocationIndex = data[0].currentLocI;
-            var locations = data[0].locations;
+            var locationsString = data[0].locations;
+            console.log(locationsString);
+            var locations = JSON.parse(locationsString);
+            console.log(locations);
             var currentLocation = locations[currentLocationIndex];
             
 
@@ -132,40 +135,44 @@ $(document).ready(function () {
     // });
 
     // DO IT AGAIN FOR ROOM INFO
-    // $.get("/api/game", function (data) {
-    //     console.log(data);
-    //     if (data[0]) {
-    //             // <ul id="roomThings" class="list-group">
-    //             // <li class="list-group-item">GOBLIN</li>
-    //             // </ul>
 
-    //             var roomObj = data[0;
+//     $.get("/api/game", function (data) {
+//         console.log(data);
+//         if (data) {
+//             for (i in data) {
+//                 // <ul id="roomThings" class="list-group">
+//                 // <li class="list-group-item">GOBLIN</li>
+//                 // </ul>
 
-    //             var roomDiv = $("<li class='list-group-item'>");
+//                 var roomObj = data[i];
 
-    //         var roomItem = $(roomObj.enemy.name);
+//                 var roomDiv = $("<li class='list-group-item'>");
 
-    //         roomDiv.append(roomItem);
-    //         $("#roomThings").append(roomDiv);
-    //         $(".adventures").append(data.location.flavText);
-    //         $(".roomName").empty();
-    //         $(".roomName").append(data.location.name);
-    //         $(".nextField").append(data.location.actions);
+//             var roomItem = $(roomObj.enemy.name);
 
-    //         if (data.location.actions == "Fight") {
-    //             $(".nextField").attr("data-toggle", "modal");
-    //             $(".nextField").attr("data-target", ".battle-modal");
-    //         }
+//             roomDiv.append(roomItem);
+//             $("#roomThings").append(roomDiv);
+//             $(".adventures").append(data.location.flavText);
+//             $(".roomName").empty();
+//             $(".roomName").append(data.location.name);
+//             $(".nextField").append(data.location.actions);
 
-    //         else if (data.location.actions == "Continue") {
-    //             $(".nextField").on("click", function (event) {
-    //                 event.preventDefault();
-        
-    //             $.post("/reservations", newReservation);
-    //         })}
-    //     }
-    // });
-    
+//             if (data.location.actions == "Fight") {
+//                 $(".nextField").attr("data-toggle", "modal");
+//                 $(".nextField").attr("data-target", ".battle-modal");
+//             }
+
+//             else if (data.location.actions == "Continue") {
+//                 $(".nextField").on("click", function (event) {
+//                     event.preventDefault();
+//                 $.post("/reservations", newReservation);
+//             }
+//             )}
+            
+//         });
+//     }
+// }
+
 
     // // DO IT AGAIN FOR ROOM INFO
     // $.get("/api/game", function (data) {

@@ -19,6 +19,23 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/loadgame/:code", function (req, res) {
+        console.log("tried to load game")
+        var code = req.params.code;
+        console.log(code)
+        // 1. Add a join to include all of each Author's Posts
+        db.Game.findAll({
+            include: [
+                db.Player
+            ],
+            where: {
+                code: code
+            }
+        }).then(function (response) {
+            res.json(response);
+        });
+    });
+
     // Creates a new player
     app.post("/api/player/", function (req, res) {
 
@@ -30,6 +47,8 @@ module.exports = function (app) {
             hp: req.body.hp,
             atk: req.body.atk,
             spriteURL: req.body.spriteURL,
+            spriteURL_battle: req.body.spriteURL_battle,
+            charPortrait: req.body.charPortrait,
             GameId: req.body.GameId
         }).then(function(newPlayer) {
             res.json(newPlayer);
