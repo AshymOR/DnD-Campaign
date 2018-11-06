@@ -3,24 +3,33 @@ var playerHP = "";
 var playerATK = "";
 var playerInfo = {};
 var enemyInfo = {};
+var gameId = localStorage.gameId;
+gameId=36;
 
 
-$.get("/api/player", function (data) {
-    console.log(data);
-    if (data) {
-        playerInfo = data;
-        playerClass = data.class;
-        playerHP = data.HP;
-        playerATK = data.ATK;
-    }
-});
-
-$.get("api/game", function (data) {
+$.get("/api/game/" + gameId, function (data) {
     console.log(data)
-    if (data) {
-        enemyInfo = data.location[i].enemy;
-    }
-})
+    var game = data[0];
+    var currentLocationIndex = data[0].currentLocI;
+    var locations = data[0].locations;
+    var currentLocation = locations[currentLocationIndex];
+    console.log(currentLocation);
+    var enemy = currentLocation.enemy;
+    // console.log(enemy);
+    enemyInfo.name = enemy.name;
+    enemyInfo.HP = enemy.hp;
+    enemyInfo.ATK = enemy.atk;
+
+    var player = game.Player;
+
+    console.log(player);
+    playerInfo.name = player.name;
+    playerInfo.class = player.class;
+    playerInfo.HP = player.hp;
+    playerInfo.ATK = player.atk;
+
+    var game = new Phaser.Game(config);
+});
 
 var Unit = new Phaser.Class({
     Extends: Phaser.GameObjects.Sprite,
@@ -424,5 +433,3 @@ var config = {
     },
     scene: [ BootScene, BattleScene, UIScene ]
 };
- 
-var game = new Phaser.Game(config);
