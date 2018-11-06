@@ -52,7 +52,28 @@ $(document).ready(function () {
             
             //////////////////////////////////
             // GETTING AND USING ENEMY
-            
+            var roomDiv = $("<li class='list-group-item'>");
+
+            var roomItem = $(roomObj.enemy.name);
+
+            roomDiv.append(roomItem);
+            $("#roomThings").append(roomDiv);
+            $(".adventures").append(data.location.flavText);
+            $(".roomName").empty();
+            $(".roomName").append(data.location.name);
+            $(".nextField").append(data.location.actions);
+
+            if (data.location.actions == "Fight") {
+                $(".nextField").attr("data-toggle", "modal");
+                $(".nextField").attr("data-target", ".battle-modal");
+            }
+
+            else if (data.location.actions == "Continue") {
+                $(".nextField").on("click", function (event) {
+                    event.preventDefault();
+        
+                $.post("/reservations", newReservation);
+            })}
             
         });
     }
@@ -103,29 +124,7 @@ $(document).ready(function () {
 
                 var roomObj = data[i];
 
-                var roomDiv = $("<li class='list-group-item'>");
-
-                var roomItem = $(roomObj.enemy.name);
-
-                roomDiv.append(roomItem);
-                $("#roomThings").append(roomDiv);
-            }
-            $(".adventures").append(data.location.flavText);
-            $(".roomName").empty();
-            $(".roomName").append(data.location.name);
-            $(".nextField").append(data.location.actions);
-
-            if (data.location.actions == "Fight") {
-                $(".nextField").attr("data-toggle", "modal");
-                $(".nextField").attr("data-target", ".battle-modal");
-            }
-
-            else if (data.location.actions == "Continue") {
-                $(".nextField").on("click", function (event) {
-                    event.preventDefault();
-        
-                $.post("/reservations", newReservation);
-            })}
+                
             
             }
     });
