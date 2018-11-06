@@ -6,17 +6,19 @@ function Location(name, enemy, backgroundURL, actions, flavText) {
     this.flavText = flavText;
 }
 
-function Enemy(name, hp, atk, spriteURL) {
+function Enemy(name, hp, atk, spriteURL, xp, loot) {
     this.name = name;
     this.hp = hp;
     this.atk = atk;
     this.spriteURL = spriteURL;
+    this.xp = xp;
+    this.loot = loot;
 }
 //Example enemy
 //var troll = new Enemy("Troll", 100, 5, "#");
 
 //Enemy to be used for basic final product
-var lich = new Enemy("Lich", 135, 17, "../images/Sprites/TimeFantasy_Monsters/2x/$monster_lich.png")
+var lich = new Enemy("Lich", 135, 17, "../images/Sprites/TimeFantasy_Monsters/2x/$monster_lich.png", 300, "Bony Finger")
 
 var startingPoint = new Location("Village", null, "../images/backDrops/Village/Village.jpg", "Continue", "You arrive at the village where the rumors of horrifc deaths and missing villagers originated from. After talking with a few of the locals you have discovered that an ancient crpyt was broken into a few months ago, shortly before the strange happenings started.");
 
@@ -27,7 +29,5 @@ var bossRoom = new Location("Blood Chamber", lich, "../images/backDrops/Dungeon/
 var finalChamber = new Location("Secret Chamber", null, "../images/backDrops/Dungeon/Dungeon1.jpg", "Continue", "After defeating the lich and destroying its phylactery you discover a hidden chamber behind the monolithic statue. You find a small tunnel lined with strange, eerie faces, and at the end you discover the lich's hoard of gold, gems, and rare scrolls.")
 
 var locations = [startingPoint, bossRoom, dungeonEntrance, bossRoom, finalChamber];
-
-locations = JSON.stringify(locations);
 
 module.exports = locations;
