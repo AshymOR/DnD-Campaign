@@ -22,12 +22,17 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/player.html"))
   });
 
-  app.get("/game/:id", function(req, res) {
+  app.get("/game/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/game.html"))
   });
 
   app.get("/results", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html.results.html"))
   });
+
+  app.get("/battle", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/html.battle.html"))
+  });
+
 
 };

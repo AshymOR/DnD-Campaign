@@ -1,3 +1,27 @@
+var playerClass = "";
+var playerHP = "";
+var playerATK = "";
+var playerInfo = {};
+var enemyInfo = {};
+
+
+$.get("/api/player", function (data) {
+    console.log(data);
+    if (data) {
+        playerInfo = data;
+        playerClass = data.class;
+        playerHP = data.HP;
+        playerATK = data.ATK;
+    }
+});
+
+$.get("api/game", function (data) {
+    console.log(data)
+    if (data) {
+        enemyInfo = data.location[i].enemy;
+    }
+})
+
 var Unit = new Phaser.Class({
     Extends: Phaser.GameObjects.Sprite,
  
@@ -207,11 +231,11 @@ var BootScene = new Phaser.Class({
     preload: function ()
     {
         // LOAD RESOURCES
-        this.load.spritesheet('player1', 'public/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player2', 'public/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player3', 'public/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player4', 'public/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('enemy', 'public/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player1', '/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player2', '/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player3', '/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player4', '/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('enemy', '/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
     },
  
     create: function ()
@@ -235,15 +259,15 @@ var BattleScene = new Phaser.Class({
         // change the background to green
         this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
         
-        // player character - warrior
-        var warrior = new PlayerCharacter(this, 250, 50, 'player1', 1, 'Warrior', 100, 20);        
-        this.add.existing(warrior);
+        // player character 
+        var player = new PlayerCharacter(this, 250, 50, playerInfo.name, 1, playerInfo.class, playerInfo.HP, playerInfo.ATK);        
+        this.add.existing(player);
         
         // player character - mage
-        var mage = new PlayerCharacter(this, 250, 100, 'player3', 4, 'Mage', 80, 8);
-        this.add.existing(mage);
+        // var mage = new PlayerCharacter(this, 250, 100, 'player3', 4, 'Mage', 80, 8);
+        // this.add.existing(mage);
         
-        var enemy = new Enemy(this, 50, 50, 'Lich', 1, 'Lich', 150, 17);
+        var enemy = new Enemy(this, 50, 50, enemyInfo.name, 1, enemyInfo.name, enemyInfo.HP, enemyInfo.ATK);
         this.add.existing(enemy);
         
         // var dragonblue = new Enemy(this, 50, 50, 'dragonblue', null, 'Dragon', 50, 3);
@@ -253,7 +277,7 @@ var BattleScene = new Phaser.Class({
         // this.add.existing(dragonOrange);
         
         // array with heroes
-        this.heroes = [ warrior, mage ];
+        this.heroes = [ player ];
         // array with enemies
         this.enemies = [ enemy ];
         // array with both parties, who will attack
