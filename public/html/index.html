@@ -58,14 +58,16 @@
       
       <!-- Modal body -->
        <div class="modal-body">
-        <p>Enter your game ID</p>
+        <p>Enter your four-character game code</p>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="code">
          <!-- font-family: 'MedievalSharp', cursive; -->
           </div>
                           
                                 <!-- Modal footer -->
        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="resumeGame" data-dismiss="modal"><h5>Resume Game</h5>
-   </button>
+        <a id="toGame" href="/game/" class="inline">
+          <button id="resumeGame" class="btn btn-alert btn-lg">Resume Game</button>
+        </a>
              </div>
          </div>
       </div>
