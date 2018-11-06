@@ -4,14 +4,28 @@ $(document).ready(function () {
     // TEST
     // Runs an API call when the page loads to make sure data is coming back for the right game.
     
+    var gameId = localStorage.GameId;
+    console.log(gameId);
+
+    var maxHPSet = localStorage.getItem("maxHPSet");
 
     if (gameId) {
         $.get("/api/game/" + gameId, function (data) {
+            var name = data[0].Player.name;
             console.log(data);
+            console.log(name);
+            // check to see if maxHPSet in storage
+            if (!maxHPSet) {
+                localStorage.setItem("maxHP", data[0].Player.hp);
+                localStorage.setItem("maxHPSet", true);
+            }
+            $("#name-header").text(name);
+            
         });
     }
+
     // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
-    $.get("/api/player", function (data) {
+    $.get("/api/player/" + gameId, function (data) {
         console.log(data);
         if (data) {
             for (i in data) {

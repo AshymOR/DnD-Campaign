@@ -468,6 +468,8 @@ $(document).ready(function () {
             $.post("/api/game").then(function (response) {
                 console.log(response.id);
                 GameId = response.id;
+
+                localStorage.setItem("GameId", GameId);
     
                 // The game currently has no use for these, but they're stored here for future use.
                 var portrait = $(".charPortrait").val().trim()
@@ -490,20 +492,13 @@ $(document).ready(function () {
                     GameId: GameId
                 };
                 $.post("/api/player", newCharacter).then(function() {
-                    $("#toGame").attr("href", "/game/id=" + GameId);
+                    // this changes href to get a game id
+                    $("#toGame").attr("href", "/game/");
                 });
-
             });
-
         }
-        
-
        
     });
-
-    // module.exports = {
-    //     gameId: gameId
-    // }
 
 
     // STILL TO DO: build and hook up the game code modal
