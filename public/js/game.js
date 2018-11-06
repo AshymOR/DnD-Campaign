@@ -52,8 +52,40 @@ $(document).ready(function () {
             
             //////////////////////////////////
             // GETTING AND USING ENEMY
-            
-            
+
+            // 1. Figure out the game's location
+            var currentLocationIndex = data[0].currentLocI;
+            console.log(typeof data[0].locations);
+            var locations = data[0].locations;
+            console.log(locations);
+            var currentLocation = locations[currentLocationIndex];
+            console.log("Current location index " + currentLocationIndex);
+
+            console.log("Current location: " + currentLocation)
+
+            // 2. Get the info for the enemy at that location
+            var enemy = currentLocation.enemy;
+            console.log(enemy);
+
+            if (enemy) {
+                $("#enemy-header").text(enemy.name)
+
+                var roomItemCard = $("<div id='room-item-card' class='card'>");
+                var enemySprite = $('<img class="card-img-top card" id="enemySprite" style="max-width: 50px; max-height: 50px; margin-top: 2px; margin-left: 2px" src = "' + enemy.spriteURL + '" alt = "Future Sprite">');
+                roomItemCard.append(enemySprite);
+
+                var cardBody = $("<div class='card-body'>");
+                var heading = $("<h5 class='card-title card' id='enemy-header'>");
+                heading.text(enemy.name);
+                cardBody.append(heading);
+                var p = $("<p class='card-text card'>");
+                p.append('<strong>HP:</strong>');
+                p.append('<strong id="hp">' + enemy.hp + '/' + enemy.hp + '</strong>');
+                p.append('<br>');
+                cardBody.append(p);
+
+                roomItemCard.append(cardBody);
+                $("#roomThings").append(roomItemCard);            }
         });
     }
 
