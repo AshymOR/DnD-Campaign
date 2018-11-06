@@ -2,7 +2,7 @@ $(document).ready(function () {
     // get GameId from localStorage
     var gameId = localStorage.GameId;
     // log the GameId
-    console.log(gameId);
+    console.log("GameId: " + gameId);
 
     // if the GameId from localStorage isn't null
     if (gameId) {
@@ -125,41 +125,42 @@ $(document).ready(function () {
     // });
 
     // DO IT AGAIN FOR ROOM INFO
-    $.get("/api/game", function (data) {
-        console.log(data);
-        if (data) {
-            for (i in data) {
-                // <ul id="roomThings" class="list-group">
-                // <li class="list-group-item">GOBLIN</li>
-                // </ul>
+//     $.get("/api/game", function (data) {
+//         console.log(data);
+//         if (data) {
+//             for (i in data) {
+//                 // <ul id="roomThings" class="list-group">
+//                 // <li class="list-group-item">GOBLIN</li>
+//                 // </ul>
 
-                var roomObj = data[i];
+//                 var roomObj = data[i];
 
-                var roomDiv = $("<li class='list-group-item'>");
+//                 var roomDiv = $("<li class='list-group-item'>");
 
-            var roomItem = $(roomObj.enemy.name);
+//             var roomItem = $(roomObj.enemy.name);
 
-            roomDiv.append(roomItem);
-            $("#roomThings").append(roomDiv);
-            $(".adventures").append(data.location.flavText);
-            $(".roomName").empty();
-            $(".roomName").append(data.location.name);
-            $(".nextField").append(data.location.actions);
+//             roomDiv.append(roomItem);
+//             $("#roomThings").append(roomDiv);
+//             $(".adventures").append(data.location.flavText);
+//             $(".roomName").empty();
+//             $(".roomName").append(data.location.name);
+//             $(".nextField").append(data.location.actions);
 
-            if (data.location.actions == "Fight") {
-                $(".nextField").attr("data-toggle", "modal");
-                $(".nextField").attr("data-target", ".battle-modal");
-            }
+//             if (data.location.actions == "Fight") {
+//                 $(".nextField").attr("data-toggle", "modal");
+//                 $(".nextField").attr("data-target", ".battle-modal");
+//             }
 
-            else if (data.location.actions == "Continue") {
-                $(".nextField").on("click", function (event) {
-                    event.preventDefault();
-        
-                $.post("/reservations", newReservation);
-            })}
+//             else if (data.location.actions == "Continue") {
+//                 $(".nextField").on("click", function (event) {
+//                     event.preventDefault();
+//                 $.post("/reservations", newReservation);
+//             }
+//             )}
             
-        });
-    }
+//         });
+//     }
+// }
 
     // DO IT AGAIN FOR ROOM INFO
     $.get("/api/game", function (data) {
