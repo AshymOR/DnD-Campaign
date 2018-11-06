@@ -1,49 +1,82 @@
-var gameId = require('./player');
-
 $(document).ready(function () {
-    // TEST
-    // Runs an API call when the page loads to make sure data is coming back for the right game.
-    
+    // get GameId from localStorage
+    var gameId = localStorage.GameId;
+    // log the GameId
+    console.log(gameId);
 
+    // if the GameId from localStorage isn't null
     if (gameId) {
+        // get the game object from db
         $.get("/api/game/" + gameId, function (data) {
+            //////////////////////////////////
+            // GETTING AND USING PLAYER'S NAME
+            // log data
             console.log(data);
+            // get the player's name
+            var name = data[0].Player.name;
+            // log player's name
+            console.log(name);
+            // if name isn't null add to name-header element
+            if (name) {
+                $("#name-header").text(name);
+            }
+
+            //////////////////////////////////
+            // GETTING AND USING PLAYER'S SPRITE
+            // get player's spriteURL
+            var playerSprite = data[0].Player.spriteURL;
+            // if playerSprite isn't null, set the html element's img src
+            if (playerSprite) {
+                $("#playerSprite").attr("src", playerSprite);
+            }
+
+            //////////////////////////////////
+            // GETTING AND USING PLAYER'S HP
+            // get maxHPSet from localStorage
+            var maxHPSet = localStorage.getItem("maxHPSet");
+            // if maxHP isn't set 
+            if (!maxHPSet) {
+                // set maxHP in localStor
+                localStorage.setItem("maxHP", data[0].Player.hp);
+                // toggle maxHPSet in localStor
+                localStorage.setItem("maxHPSet", true);
+            }
+            // get maxHP from localStor
+            var maxHP = localStorage.getItem("maxHP");
+            // set hp variable using Player.hp in db
+            var hp = data[0].Player.hp;
+            // if maxHP and hp aren't null, set the html elements
+            if (maxHP != null && hp != null) {
+                $("#hp").text(hp + "/" + maxHP);
+            } 
+            
+            //////////////////////////////////
+            // GETTING AND USING ENEMY
+            var roomDiv = $("<li class='list-group-item'>");
+
+            var roomItem = $(roomObj.enemy.name);
+
+            roomDiv.append(roomItem);
+            $("#roomThings").append(roomDiv);
+            $(".adventures").append(data.location.flavText);
+            $(".roomName").empty();
+            $(".roomName").append(data.location.name);
+            $(".nextField").append(data.location.actions);
+
+            if (data.location.actions == "Fight") {
+                $(".nextField").attr("data-toggle", "modal");
+                $(".nextField").attr("data-target", ".battle-modal");
+            }
+
+            else if (data.location.actions == "Continue") {
+                $(".nextField").on("click", function (event) {
+                    event.preventDefault();
+        
+                $.post("/reservations", newReservation);
+            })}
+            
         });
     }
-    // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
-    $.get("/api/player", function (data) {
-        console.log(data);
-        if (data) {
-            for (i in data) {
-                // <ul id="partyList" class="list-group"></ul>
-                // <div class="card">
-                // <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Future Sprite">
-                // <div class="card-body">
-                // <h5 class="card-title">John Smith</h5>
-                // <p class="card-text">
-                // <strong>HP:</strong> ##/##
-                // <br>
-                // <strong>MP:</strong> ##/##
-                // </p>
-                // </div>
-                // </div>
-                // </ul>
-                var charObj = data[i];
-
-                var charDiv = $("<li class='list-group-item'>");
-
-                var charCard = $("<div class='card'>");
-                var charSprite = $("<img class='card-img-top' src='" + charObj.SpriteURL + "' alt='Player Sprite'>");
-                var charCardTwo = $("<div class='card-body'");
-                var charName = $("<h5 class='card-title'>" + charObj.playerName + "</h5>");
-                var charHR = $("<hr>");
-                var charHP = $("<p class='card-text'><strong>HP: </strong>" + charObj.HP + "</p>");
-
-                charDiv.append(charCard, charSprite, charCardTwo, charName, charHR, charHP);
-                $("#partyList").append(charDiv);
-            }
-        }
-    });
 
     // DO IT AGAIN FOR ROOM INFO
     $.get("/api/game", function (data) {
@@ -56,14 +89,9 @@ $(document).ready(function () {
 
                 var roomObj = data[i];
 
-                var roomDiv = $("<li class='list-group-item'>");
-
-                var roomItem = $(roomObj.enemy.name);
-
-                roomDiv.append(roomItem);
-                $("#roomThings").append(roomDiv);
+                
+            
             }
-        }
     });
 
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
