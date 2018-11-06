@@ -1,14 +1,15 @@
-
-// TEST
-// Runs an API call when the page loads to make sure data is coming back for the right game.
-if (gameId) {
-    $.get("/api/game/" + gameId, function (data) {
-        console.log(data);
-    });
-}
-
+var gameId = require('./player');
 
 $(document).ready(function () {
+    // TEST
+    // Runs an API call when the page loads to make sure data is coming back for the right game.
+    
+
+    if (gameId) {
+        $.get("/api/game/" + gameId, function (data) {
+            console.log(data);
+        });
+    }
     // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
     $.get("/api/player", function (data) {
         console.log(data);

@@ -11,6 +11,13 @@ $(document).ready(function () {
         $(this).parents().siblings("input").prop("readonly", true); //turns the readonly off
     }
     });
+
+    // variables to determine if all four selections have been made
+    // var raceSelected = false;
+    // var genderSelected = false;
+    // var classSelected = false;
+    // var alignSelected = false;
+
     $(".charRace").change(function() {
         let charRace = $(".charRace").val();
         let charGender = $(".charGender").val();
@@ -24,6 +31,7 @@ $(document).ready(function () {
         }
         console.log(charRace);
         if (charRace == "dragonborn") {
+            raceSelected = true;
             $(".infoTitle").empty();
             $(".infoTitle").html("Dragonborn");
             $(".infoText").empty();
@@ -51,6 +59,7 @@ $(document).ready(function () {
             }
         }
         else if (charRace == "dwarf") {
+            raceSelected = true;
             $(".infoTitle").empty();
             $(".infoTitle").html("Dwarf");
             $(".infoText").empty();
@@ -78,6 +87,7 @@ $(document).ready(function () {
             }
         }
         else if (charRace == "gnome") {
+            raceSelected = true;
             $(".infoTitle").empty();
             $(".infoTitle").html("Gnome");
             $(".infoText").empty();
@@ -105,6 +115,7 @@ $(document).ready(function () {
             }
         }
         else if (charRace == "elf") {
+            raceSelected = true;
             $(".infoTitle").empty();
             $(".infoTitle").html("Elf");
             $(".infoText").empty();
@@ -424,38 +435,60 @@ $(document).ready(function () {
     $("#submitChar").click(function(event) {
         event.preventDefault();
 
-        var GameId;
-        
-        // Player is ready to submit character. Create game, then create character.
-        $.post("/api/game").then(function (response) {
-            console.log(response.id);
-            GameId = response.id;
+        let charRace = $(".charRace").val();
+        let charGender = $(".charGender").val();
+        let charClass = $(".charClass").val();
+        let charAlign = $(".charAlign").val();
 
-            // The game currently has no use for these, but they're stored here for future use.
-            var portrait = $(".charPortrait").val().trim()
-            var str = $(".charSTR").text();
-            var dex = $(".charDEX").text();
-            var con = $(".charCON").text();
-            var int = $(".charINT").text();
-            var wis = $(".charWIS").text();
-            var cha = $(".charCHA").text();
-            var alignment = $(".charAlign").val().trim();
+        if (charRace != null && charGender != null && charClass != null && charAlign != null) {
 
-            var newCharacter = {
-                name: $("#playerName").val().trim(),
-                gender: $(".charGender").val().trim(),
-                race: $(".charRace").val().trim(),
-                class: $(".charClass").val().trim(),
-                hp: parseInt($(".charCON").val().trim() + parseInt(100)),
-                atk: parseInt(str),
-                spriteURL: "#",
-                GameId: GameId
-            };
-            $.post("/api/player", newCharacter).then(function() {
-                $("#toGame").attr("href", "/game/id=" + GameId);
+            console.log("Character created");
+            
+            $("#submitChar").text("Character created.");
+            $("#submitChar").attr('disabled','disabled');
+            
+            var GameId;
+            
+            // Player is ready to submit character. Create game, then create character.
+            $.post("/api/game").then(function (response) {
+                console.log(response.id);
+                GameId = response.id;
+    
+                // The game currently has no use for these, but they're stored here for future use.
+                var portrait = $(".charPortrait").val().trim()
+                var str = $(".charSTR").text();
+                var dex = $(".charDEX").text();
+                var con = $(".charCON").text();
+                var int = $(".charINT").text();
+                var wis = $(".charWIS").text();
+                var cha = $(".charCHA").text();
+                var alignment = $(".charAlign").val().trim();
+    
+                var newCharacter = {
+                    name: $("#playerName").val().trim(),
+                    gender: $(".charGender").val().trim(),
+                    race: $(".charRace").val().trim(),
+                    class: $(".charClass").val().trim(),
+                    hp: parseInt($(".charCON").val().trim() + parseInt(100)),
+                    atk: parseInt(str),
+                    spriteURL: "#",
+                    GameId: GameId
+                };
+                $.post("/api/player", newCharacter).then(function() {
+                    $("#toGame").attr("href", "/game/id=" + GameId);
+                });
             });
-        });
+
+        }
+        
+
+       
     });
+
+    // module.exports = {
+    //     gameId: gameId
+    // }
+
 
     // STILL TO DO: build and hook up the game code modal
     // STILL TO DO (stretch): build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
