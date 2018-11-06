@@ -94,8 +94,6 @@ $(document).ready(function () {
         });
     }
 
-<<<<<<< HEAD
-=======
     // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
     // $.get("/api/player/" + gameId, function (data) {
     //     console.log(data);
@@ -184,7 +182,6 @@ $(document).ready(function () {
     //     }
     // });
 
->>>>>>> origin
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
     // <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
 

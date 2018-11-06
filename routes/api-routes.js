@@ -30,6 +30,7 @@ module.exports = function (app) {
             hp: req.body.hp,
             atk: req.body.atk,
             spriteURL: req.body.spriteURL,
+            charPortrait: req.body.charPortrait,
             GameId: req.body.GameId
         }).then(function(newPlayer) {
             res.json(newPlayer);
