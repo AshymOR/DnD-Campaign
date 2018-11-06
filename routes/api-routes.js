@@ -6,7 +6,7 @@ var locations = require("../public/js/locations");
 module.exports = function (app) {
     app.get("/api/game/:id", function (req, res) {
         var id = req.params.id.split();
-        // // 1. Add a join to include all of each Author's Posts
+        // 1. Add a join to include all of each Author's Posts
         db.Game.findAll({
             include: [
                 db.Player
