@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Game = sequelize.define("Game", {
         code: DataTypes.STRING,
-        locations: DataTypes.JSON,
+        locations: DataTypes.STRING,
         currentLocI: {
             type = DataTypes.INTEGER,
             defaultValue = 0,
