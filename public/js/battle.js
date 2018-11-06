@@ -31,6 +31,7 @@ $.get("/api/game/" + gameId, function (data) {
     playerInfo.class = player.class;
     playerInfo.HP = player.hp;
     playerInfo.ATK = player.atk;
+    playerInfo.sprite = player.spriteURL_battle;
 
     var game = new Phaser.Game(config);
 });
@@ -244,11 +245,13 @@ var BootScene = new Phaser.Class({
     preload: function ()
     {
         // LOAD RESOURCES
-        this.load.spritesheet('player1', '/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player2', '/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player3', '/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player4', '/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('enemy', '/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
+        // this.load.spritesheet('player1', '/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
+        // this.load.spritesheet('player2', '/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
+        // this.load.spritesheet('player3', '/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
+        // this.load.spritesheet('player4', '/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
+        // this.load.spritesheet('enemy', '/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.image('player', playerInfo.sprite);
+        this.load.image('enemyLich', '/images/Sprites/enemies/lich_single.png');
     },
  
     create: function ()
@@ -273,14 +276,14 @@ var BattleScene = new Phaser.Class({
         this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
         
         // player character 
-        var player = new PlayerCharacter(this, 250, 50, playerInfo.name, 1, playerInfo.class, playerInfo.HP, playerInfo.ATK);        
+        var player = new PlayerCharacter(this, 250, 50, 'player', null, playerInfo.name, playerInfo.HP, playerInfo.ATK);        
         this.add.existing(player);
         
         // player character - mage
         // var mage = new PlayerCharacter(this, 250, 100, 'player3', 4, 'Mage', 80, 8);
         // this.add.existing(mage);
         
-        var enemy = new Enemy(this, 50, 50, enemyInfo.name, 1, enemyInfo.name, enemyInfo.HP, enemyInfo.ATK);
+        var enemy = new Enemy(this, 50, 50, 'enemyLich', null, enemyInfo.name, enemyInfo.HP, enemyInfo.ATK);
         this.add.existing(enemy);
         
         // var dragonblue = new Enemy(this, 50, 50, 'dragonblue', null, 'Dragon', 50, 3);
