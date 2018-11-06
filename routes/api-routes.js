@@ -47,6 +47,7 @@ module.exports = function (app) {
             hp: req.body.hp,
             atk: req.body.atk,
             spriteURL: req.body.spriteURL,
+            charPortrait: req.body.charPortrait,
             GameId: req.body.GameId
         }).then(function(newPlayer) {
             res.json(newPlayer);
@@ -55,7 +56,7 @@ module.exports = function (app) {
 
     // Creates a new game
     app.post("/api/game/", function (req, res) {
-        var locationArray = locations;
+        var locationArray = JSON.stringify(locations);
         // generate random four-char alphanumeric code
         var codeChars = ['a', '3', '4', '5', '9', 'e', '1', 'w', 'x', 'y', '7'];
         var char1 = codeChars[Math.floor(Math.random()*11)];

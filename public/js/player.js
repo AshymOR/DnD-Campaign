@@ -72,11 +72,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA + parseInt(1));
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Dragonborn/Male_Dragonborn.png");
+                $(".charPortrait").attr("src", "../images/Dragonborn/Male_Dragonborn_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Dragonborn/Female_Dragonborn.jpg");
+                $(".charPortrait").attr("src", "../images/Dragonborn/Female_Dragonborn_small.jpg");
             }
         }
         else if (charRace == "dwarf") {
@@ -100,11 +100,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Dwarf/Male_Dwarf.png");
+                $(".charPortrait").attr("src", "../images/Dwarf/Male_Dwarf_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Dwarf/Female_Dwarf.png");
+                $(".charPortrait").attr("src", "../images/Dwarf/Female_Dwarf_small.png");
             }
         }
         else if (charRace == "gnome") {
@@ -128,11 +128,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Gnome/Male_Gnome.png");
+                $(".charPortrait").attr("src", "../images/Gnome/Male_Gnome_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Gnome/Female_Gnome.jpg");
+                $(".charPortrait").attr("src", "../images/Gnome/Female_Gnome_small.jpg");
             }
         }
         else if (charRace == "elf") {
@@ -156,11 +156,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Elf/Male_Elf.png");
+                $(".charPortrait").attr("src", "../images/Elf/Male_Elf_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Elf/Female_Elf.jpg");
+                $(".charPortrait").attr("src", "../images/Elf/Female_Elf_small.jpg");
             }
         }
         else if (charRace == "halfelf") {
@@ -183,11 +183,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA + parseInt(2));
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Half-Elf/Male_Half_Elf.png");
+                $(".charPortrait").attr("src", "../images/Half-Elf/Male_Half_Elf_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Half-Elf/Female_Half_Elf.jpg");
+                $(".charPortrait").attr("src", "../images/Half-Elf/Female_Half_Elf_small.jpg");
             }
         }
         else if (charRace == "halfling") {
@@ -210,11 +210,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Halfling/Male_Halfling.png");
+                $(".charPortrait").attr("src", "../images/Halfling/Male_Halfling_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Halfling/Female_Halfling.jpg");
+                $(".charPortrait").attr("src", "../images/Halfling/Female_Halfling_small.jpg");
             }
         }
         else if (charRace == "halforc") {
@@ -237,11 +237,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA);
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Half-Orc/Male_Half_Orc.png");
+                $(".charPortrait").attr("src", "../images/Half-Orc/Male_Half_Orc_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Half-Orc/Female_Half_Orc.png");
+                $(".charPortrait").attr("src", "../images/Half-Orc/Female_Half_Orc_small.png");
             }
         }
         else if (charRace == "human") {
@@ -264,11 +264,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA + parseInt(1));
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Human/Male_Human.jpg");
+                $(".charPortrait").attr("src", "../images/Human/Male_Human_small.jpg");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Human/Female_Human.png");
+                $(".charPortrait").attr("src", "../images/Human/Female_Human_small.png");
             }
         }
         else if (charRace == "tiefling") {
@@ -291,11 +291,11 @@ $(document).ready(function () {
             $(".charCHA").append(charCHA + parseInt(2));
             if (charGender == "male") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Tiefling/Male_Tiefling.png");
+                $(".charPortrait").attr("src", "../images/Tiefling/Male_Tiefling_small.png");
             }
             else if (charGender == "female") {
                 $(".charPortrait").empty();
-                $(".charPortrait").attr("src", "../images/Tiefling/Female_Tiefling.jpg");
+                $(".charPortrait").attr("src", "../images/Tiefling/Female_Tiefling_small.jpg");
             }
         }
         else {
@@ -500,7 +500,7 @@ $(document).ready(function () {
                 localStorage.setItem("GameId", GameId);
     
                 // The game currently has no use for these, but they're stored here for future use.
-                var portrait = $(".charPortrait").val().trim()
+                var portrait = $(".charPortrait").attr("src");
                 var str = $(".charSTR").text();
                 var dex = $(".charDEX").text();
                 var con = $(".charCON").text();
@@ -518,6 +518,7 @@ $(document).ready(function () {
                     hp: parseInt($(".charCON").val().trim() + parseInt(100)),
                     atk: parseInt(str),
                     spriteURL: charSprite,
+                    charPortrait: portrait,
                     GameId: GameId
                 };
                 $.post("/api/player", newCharacter).then(function() {
