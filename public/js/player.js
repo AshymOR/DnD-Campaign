@@ -500,7 +500,7 @@ $(document).ready(function () {
                 localStorage.setItem("GameId", GameId);
     
                 // The game currently has no use for these, but they're stored here for future use.
-                var portrait = $(".charPortrait").val().trim()
+                var portrait = $(".charPortrait").attr("src");
                 var str = $(".charSTR").text();
                 var dex = $(".charDEX").text();
                 var con = $(".charCON").text();

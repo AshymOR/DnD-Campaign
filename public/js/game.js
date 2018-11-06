@@ -55,7 +55,10 @@ $(document).ready(function () {
 
             // 1. Figure out the game's location
             var currentLocationIndex = data[0].currentLocI;
-            var locations = data[0].locations;
+            var locationsString = data[0].locations;
+            console.log(locationsString);
+            var locations = JSON.parse(locationsString);
+            console.log(locations);
             var currentLocation = locations[currentLocationIndex];
             
 
