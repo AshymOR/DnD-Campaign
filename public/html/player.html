@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/player.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
     <script src="../js/player.js"></script>
 </head>
 <body>
@@ -179,9 +181,9 @@
                 <button class="btn btn-alert btn-lg" id="submitChar">Submit Character</button>
             </div>
             <div class="col-lg-3">
-                <form action="/game" class="inline">
-                <button class="btn btn-alert btn-lg" id="toGame">Go to Game</button>
-                </form>
+                <a id="toGame" href="/game/" class="inline">
+                    <button class="btn btn-alert btn-lg">Go to Game</button>
+                </a>
             </div>
             <div class="col-lg-2">
                 <button class="btn btn-alert btn-lg" id="saveQuit">Save & Quit</button>
