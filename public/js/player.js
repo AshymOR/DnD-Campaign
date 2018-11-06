@@ -455,7 +455,7 @@ $(document).ready(function () {
         let charAlign = $(".charAlign").val();
 
 
-        if (charRace != null && charGender != null && charClass != null && charAlign != null) {
+        if (charRace != null && charGender != null && charClass != null && charSprite != null && charAlign != null) {
 
             console.log("Character created");
             
@@ -478,6 +478,7 @@ $(document).ready(function () {
                 var wis = $(".charWIS").text();
                 var cha = $(".charCHA").text();
                 var alignment = $(".charAlign").val().trim();
+                var sprite = charSprite;
     
                 var newCharacter = {
                     name: $("#playerName").val().trim(),
@@ -486,7 +487,7 @@ $(document).ready(function () {
                     class: $(".charClass").val().trim(),
                     hp: parseInt($(".charCON").val().trim() + parseInt(100)),
                     atk: parseInt(str),
-                    spriteURL: "#",
+                    spriteURL: sprite,
                     GameId: GameId
                 };
                 $.post("/api/player", newCharacter).then(function() {
