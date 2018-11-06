@@ -433,12 +433,12 @@ $(document).ready(function () {
 
             // The game currently has no use for these, but they're stored here for future use.
             var portrait = $(".charPortrait").val().trim()
-            var str = $(".charSTR").val().trim();
-            var dex = $(".charDEX").val().trim();
-            var con = $(".charCON").val().trim();
-            var int = $(".charINT").val().trim();
-            var wis = $(".charWIS").val().trim();
-            var cha = $(".charCHA").val().trim();
+            var str = $(".charSTR").text();
+            var dex = $(".charDEX").text();
+            var con = $(".charCON").text();
+            var int = $(".charINT").text();
+            var wis = $(".charWIS").text();
+            var cha = $(".charCHA").text();
             var alignment = $(".charAlign").val().trim();
 
             var newCharacter = {
@@ -447,7 +447,7 @@ $(document).ready(function () {
                 race: $(".charRace").val().trim(),
                 class: $(".charClass").val().trim(),
                 hp: parseInt($(".charCON").val().trim() + parseInt(100)),
-                atk: str,
+                atk: parseInt(str),
                 spriteURL: "#",
                 GameId: GameId
             };
