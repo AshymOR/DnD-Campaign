@@ -1,4 +1,4 @@
-var gameId = require('./player');
+// var gameId = require('./player');
 
 $(document).ready(function () {
     // TEST
@@ -63,7 +63,31 @@ $(document).ready(function () {
                 roomDiv.append(roomItem);
                 $("#roomThings").append(roomDiv);
             }
-        }
+            $(".adventures").append(data.location.flavortext);
+            $(".roomName").empty();
+            $(".roomName").append(data.location.name);
+
+            // IF room has ENEMY, show BATTLE modal
+            if (data.location.enemy !== null) {
+                $(".battle-modal").modal({
+                    show: true
+                });
+
+                //IF battle is WON, show Victory Modal & hide Battle Modal
+                if (WINPARAMETERTOENTERLATER) {
+                    $(".battle-modal").modal({show: false});
+                    $(".victory-modal").modal({show: true});
+                    $(".victory-modal").load(function() { 
+                        $.get("/api/game", function (data) {
+                            // GET LOOT && EXP
+                        }),
+                        $.put("/api/player", function (data) {
+                            // UPDATE PLAYER INFO
+                        })
+                    })
+                }
+                }
+            }
     });
 
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
