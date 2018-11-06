@@ -1,3 +1,13 @@
+
+// TEST
+// Runs an API call when the page loads to make sure data is coming back for the right game.
+if (gameId) {
+    $.get("/api/game/" + gameId, function (data) {
+        console.log(data);
+    });
+}
+
+
 $(document).ready(function () {
     // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
     $.get("/api/player", function (data) {

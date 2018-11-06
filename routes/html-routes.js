@@ -22,7 +22,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/player.html"))
   });
 
-  app.get("/game", function(req, res) {
+  app.get("/game/:id", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/game.html"))
   });
 

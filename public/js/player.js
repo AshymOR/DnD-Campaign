@@ -451,20 +451,11 @@ $(document).ready(function () {
                 spriteURL: "#",
                 GameId: GameId
             };
-            $.post("/api/player", newCharacter);
+            $.post("/api/player", newCharacter).then(function() {
+                $("#toGame").attr("href", "/game/id=" + GameId);
+            });
         });
     });
-        
-    // 
-    $("#toGame").click(function(event) {
-        event.preventDefault();
-        var newGame = {
-            // WHATEVER NEW GAME INFO IS NEEDED FROM THE PLAYER GOES HERE
-        };
-
-        // Not likely going to create game with this button
-        // $.post("/api/game", newGame);
-    })
 
     // STILL TO DO: build and hook up the game code modal
     // STILL TO DO (stretch): build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
