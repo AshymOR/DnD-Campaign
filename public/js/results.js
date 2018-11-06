@@ -6,13 +6,8 @@
 
 //Do we want a fixed image of a character, or will is populate with the player's character?//
 
-function show_image(src, width, height, alt) {
-    var img = document.createElement(".charPortrait");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.alt = alt;
-
-    // This next line will just add it to the <body> tag
-    document.body.appendChild(img);
-}
+var charPortrait = data[0].Player.charPortrait;
+            // if playerSprite isn't null, set the html element's img src
+            if (charPortrait) {
+                $("#charPortrait").attr("src", charPortrait);
+            }
