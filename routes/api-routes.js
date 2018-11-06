@@ -47,6 +47,7 @@ module.exports = function (app) {
             hp: req.body.hp,
             atk: req.body.atk,
             spriteURL: req.body.spriteURL,
+            spriteURL_battle: req.body.spriteURL_battle,
             charPortrait: req.body.charPortrait,
             GameId: req.body.GameId
         }).then(function(newPlayer) {
