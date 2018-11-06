@@ -155,6 +155,43 @@ $(document).ready(function () {
 //             $(".roomName").append(data.location.name);
 //             $(".nextField").append(data.location.actions);
 
+
+
+//             if (data.location.actions == "Fight") {
+//                 $(".nextField").attr("data-toggle", "modal");
+//                 $(".nextField").attr("data-target", ".battle-modal");
+//             }
+
+//             else if (data.location.actions == "Continue") {
+//                 $(".nextField").on("click", function (event) {
+//                     event.preventDefault();
+//                 $.post("/reservations", newReservation);
+//             }
+//             )}
+            
+//         });
+//     }
+// }
+
+
+    // // DO IT AGAIN FOR ROOM INFO
+    // $.get("/api/game", function (data) {
+    //     console.log(data);
+    //     if (data) {
+    //         for (i in data) {
+    //             // <ul id="roomThings" class="list-group">
+    //             // <li class="list-group-item">GOBLIN</li>
+    //             // </ul>
+
+    //             var roomObj = data[i];
+
+                
+            
+    //         }
+    //     }
+    // });
+
+
 //             if (data.location.actions == "Fight") {
 //                 $(".nextField").attr("data-toggle", "modal");
 //                 $(".nextField").attr("data-target", ".battle-modal");
