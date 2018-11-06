@@ -1,13 +1,3 @@
-// ON LOAD:
-// Make this API call:
-//          $.post("/api/game").then(function (response) {
-    //         console.log(response.id);
-    //         gameId = response.id
-
-    //         $.get("/player");
-    //     });
-var gameId;
-
 $(document).ready(function () {
     $(".glyphicon-ok").hide();
     $("#editToggle").click(function () {
@@ -433,30 +423,42 @@ $(document).ready(function () {
     // ON SUBMIT, give to player API
     $("#submitChar").click(function(event) {
         event.preventDefault();
-        var newCharacter = {
-            name: $("#playerName").val().trim(),
-            gender: $(".charGender").val().trim(),
-            race: $(".charRace").val().trim(),
-            class: $(".charClass").val().trim(),
-            alignment: $(".charAlign").val().trim(),
-            portrait: $(".charPortrait").val().trim(),
-            str: $(".charSTR").val().trim(),
-            dex: $(".charDEX").val().trim(),
-            con: $(".charCON").val().trim(),
-            int: $(".charINT").val().trim(),
-            wis: $(".charWIS").val().trim(),
-            cha: $(".charCHA").val().trim(),
-            hp: parseInt($(".charCON").val().trim() + parseInt(100))
-        };
-        $.post("/api/player", newCharacter);
-    });
 
+        var gameId;
+        
+        // Player is ready to submit character. Create game, then create character.
+        $.post("/api/game").then(function (response) {
+            console.log(response.id);
+            gameId = response.id;
+
+            var newCharacter = {
+                name: $("#playerName").val().trim(),
+                gender: $(".charGender").val().trim(),
+                race: $(".charRace").val().trim(),
+                class: $(".charClass").val().trim(),
+                alignment: $(".charAlign").val().trim(),
+                portrait: $(".charPortrait").val().trim(),
+                str: $(".charSTR").val().trim(),
+                dex: $(".charDEX").val().trim(),
+                con: $(".charCON").val().trim(),
+                int: $(".charINT").val().trim(),
+                wis: $(".charWIS").val().trim(),
+                cha: $(".charCHA").val().trim(),
+                hp: parseInt($(".charCON").val().trim() + parseInt(100))
+            };
+            $.post("/api/player", newCharacter);
+        });
+    });
+        
+    // 
     $("#toGame").click(function(event) {
         event.preventDefault();
         var newGame = {
             // WHATEVER NEW GAME INFO IS NEEDED FROM THE PLAYER GOES HERE
         };
-        $.post("/api/game", newGame);
+
+        // Not likely going to create game with this button
+        // $.post("/api/game", newGame);
     })
 
     // STILL TO DO: build and hook up the game code modal
