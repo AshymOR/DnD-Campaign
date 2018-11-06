@@ -26,6 +26,6 @@ var bossRoom = new Location("Blood Chamber", lich, "../images/backDrops/Dungeon/
 
 var finalChamber = new Location("Secret Chamber", null, "../images/backDrops/Dungeon/Dungeon1.jpg", "Continue", "After defeating the lich and destroying its phylactery you discover a hidden chamber behind the monolithic statue. You find a small tunnel lined with strange, eerie faces, and at the end you discover the lich's hoard of gold, gems, and rare scrolls.")
 
-var locations = [startingPoint, bossRoom, dungeonEntrance, bossRoom, finalChamber];
+var locations = [startingPoint,  dungeonEntrance, bossRoom, finalChamber];
 
 module.exports = locations;
