@@ -207,10 +207,10 @@ var BootScene = new Phaser.Class({
     preload: function ()
     {
         // LOAD RESOURCES
-        this.load.spritesheet('player', 'public/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player', 'public/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player', 'public/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player', 'public/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player1', 'public/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player2', 'public/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player3', 'public/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player4', 'public/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
         this.load.spritesheet('enemy', 'public/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
     },
  
@@ -236,11 +236,11 @@ var BattleScene = new Phaser.Class({
         this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
         
         // player character - warrior
-        var warrior = new PlayerCharacter(this, 250, 50, 'player', 1, 'Warrior', 100, 20);        
+        var warrior = new PlayerCharacter(this, 250, 50, 'player1', 1, 'Warrior', 100, 20);        
         this.add.existing(warrior);
         
         // player character - mage
-        var mage = new PlayerCharacter(this, 250, 100, 'player', 4, 'Mage', 80, 8);
+        var mage = new PlayerCharacter(this, 250, 100, 'player3', 4, 'Mage', 80, 8);
         this.add.existing(mage);
         
         var enemy = new Enemy(this, 50, 50, 'Lich', 1, 'Lich', 150, 17);
@@ -255,7 +255,7 @@ var BattleScene = new Phaser.Class({
         // array with heroes
         this.heroes = [ warrior, mage ];
         // array with enemies
-        this.enemies = [ enemy, dragonblue, dragonOrange ];
+        this.enemies = [ enemy ];
         // array with both parties, who will attack
         this.units = this.heroes.concat(this.enemies);
         
@@ -387,7 +387,7 @@ var UIScene = new Phaser.Class({
  
 var config = {
     type: Phaser.AUTO,
-    parent: 'battle-div',
+    parent: 'content',
     width: 320,
     height: 240,
     zoom: 2,
