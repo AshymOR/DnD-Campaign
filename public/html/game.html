@@ -61,11 +61,12 @@
                     <div class="col-md-3">
                         <div class="card room-info">
                             <div class="card-header" id="woodBG">
-                                <h4 class="roomName">Dusty Room</h4>
+                                <h4 id="roomName">Dusty Room</h4>
                             </div>
                             <div class="card-body">
+                                <!-- Room items will go here -->
                                 <ul id="roomThings" class="list-group">
-                                    <li class="list-group-item">GOBLIN</li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -74,12 +75,12 @@
                 <br>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="adventure-log">
-                            <div class="card-header" id="adventureLog">
+                        <div class="adventureLog">
+                            <div class="card-header">
                                 <h6>Adventure Log</h6>
                             </div>
-                            <div class="card-body" id="adventureLog">
-                                <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
+                            <div class="card-body">
+                                <p id="flavorText" class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
                                 <button class="btn btn-secondary nextField btn-sm">Continue</button>
                             </div>
                         </div>
@@ -99,7 +100,7 @@
                 <div class="modal-body battle-div">
                     <!-- GAME GOES HERE -->
                     <div class="embed-responsive embed-responsive-21by9">
-                        <iframe class="embed-responsive-item" src="battle.html" height="240" width="320"></iframe>
+                        <iframe class="embed-responsive-item" src="/html/battle.html" height="240" width="320"></iframe>
                     </div>
                 </div>
             </div>
