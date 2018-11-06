@@ -4,6 +4,7 @@ var playerATK = "";
 var playerInfo = {};
 var enemyInfo = {};
 
+
 $.get("/api/player", function (data) {
     console.log(data);
     if (data) {
@@ -230,11 +231,11 @@ var BootScene = new Phaser.Class({
     preload: function ()
     {
         // LOAD RESOURCES
-        this.load.spritesheet('player1', 'public/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player2', 'public/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player3', 'public/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('player4', 'public/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
-        this.load.spritesheet('enemy', 'public/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player1', '/images/Sprites/male/chara2.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player2', '/images/Sprites/male/chara3.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player3', '/images/Sprites/male/chara4.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('player4', '/images/Sprites/male/chara5.png', { frameWidth: 16, frameHeight: 16 });
+        this.load.spritesheet('enemy', '/images/Sprites/enemies/$monster_lich.png', { frameWidth: 16, frameHeight: 16 });
     },
  
     create: function ()
