@@ -52,7 +52,90 @@ $(document).ready(function () {
             
             //////////////////////////////////
             // GETTING AND USING ENEMY
-            var roomDiv = $("<li class='list-group-item'>");
+
+            // 1. Figure out the game's location
+            var currentLocationIndex = data[0].currentLocI;
+            console.log(typeof data[0].locations);
+            var locations = data[0].locations;
+            console.log(locations);
+            var currentLocation = locations[currentLocationIndex];
+            console.log("Current location index " + currentLocationIndex);
+
+            console.log("Current location: " + currentLocation)
+
+            // 2. Get the info for the enemy at that location
+            var enemy = currentLocation.enemy;
+            console.log(enemy);
+
+            if (enemy) {
+                $("#enemy-header").text(enemy.name)
+
+                var roomItemCard = $("<div id='room-item-card' class='card'>");
+                var enemySprite = $('<img class="card-img-top card" id="enemySprite" style="max-width: 50px; max-height: 50px; margin-top: 2px; margin-left: 2px" src = "' + enemy.spriteURL + '" alt = "Future Sprite">');
+                roomItemCard.append(enemySprite);
+
+                var cardBody = $("<div class='card-body'>");
+                var heading = $("<h5 class='card-title card' id='enemy-header'>");
+                heading.text(enemy.name);
+                cardBody.append(heading);
+                var p = $("<p class='card-text card'>");
+                p.append('<strong>HP:</strong>');
+                p.append('<strong id="hp">' + enemy.hp + '/' + enemy.hp + '</strong>');
+                p.append('<br>');
+                cardBody.append(p);
+
+                roomItemCard.append(cardBody);
+                $("#roomThings").append(roomItemCard);            }
+        });
+    }
+
+    // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
+    // $.get("/api/player/" + gameId, function (data) {
+    //     console.log(data);
+    //     if (data) {
+    //         for (i in data) {
+    //             // <ul id="partyList" class="list-group"></ul>
+    //             // <div class="card">
+    //             // <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Future Sprite">
+    //             // <div class="card-body">
+    //             // <h5 class="card-title">John Smith</h5>
+    //             // <p class="card-text">
+    //             // <strong>HP:</strong> ##/##
+    //             // <br>
+    //             // <strong>MP:</strong> ##/##
+    //             // </p>
+    //             // </div>
+    //             // </div>
+    //             // </ul>
+    //             var charObj = data[i];
+
+    //             var charDiv = $("<li class='list-group-item'>");
+
+    //             var charCard = $("<div class='card'>");
+    //             var charSprite = $("<img class='card-img-top' src='" + charObj.SpriteURL + "' alt='Player Sprite'>");
+    //             var charCardTwo = $("<div class='card-body'");
+    //             var charName = $("<h5 class='card-title'>" + charObj.playerName + "</h5>");
+    //             var charHR = $("<hr>");
+    //             var charHP = $("<p class='card-text'><strong>HP: </strong>" + charObj.HP + "</p>");
+
+    //             charDiv.append(charCard, charSprite, charCardTwo, charName, charHR, charHP);
+    //             $("#partyList").append(charDiv);
+    //         }
+    //     }
+    // });
+
+    // DO IT AGAIN FOR ROOM INFO
+    $.get("/api/game", function (data) {
+        console.log(data);
+        if (data) {
+            for (i in data) {
+                // <ul id="roomThings" class="list-group">
+                // <li class="list-group-item">GOBLIN</li>
+                // </ul>
+
+                var roomObj = data[i];
+
+                var roomDiv = $("<li class='list-group-item'>");
 
             var roomItem = $(roomObj.enemy.name);
 
