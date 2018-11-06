@@ -55,7 +55,10 @@ $(document).ready(function () {
 
             // 1. Figure out the game's location
             var currentLocationIndex = data[0].currentLocI;
-            var locations = data[0].locations;
+            var locationsString = data[0].locations;
+            console.log(locationsString);
+            var locations = JSON.parse(locationsString);
+            console.log(locations);
             var currentLocation = locations[currentLocationIndex];
             
 
@@ -94,8 +97,6 @@ $(document).ready(function () {
         });
     }
 
-<<<<<<< HEAD
-=======
     // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
     // $.get("/api/player/" + gameId, function (data) {
     //     console.log(data);
@@ -184,7 +185,6 @@ $(document).ready(function () {
     //     }
     // });
 
->>>>>>> origin
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
     // <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
 
