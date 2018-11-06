@@ -97,8 +97,6 @@ $(document).ready(function () {
         });
     }
 
-<<<<<<< HEAD
-=======
     // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
     // $.get("/api/player/" + gameId, function (data) {
     //     console.log(data);
@@ -157,6 +155,8 @@ $(document).ready(function () {
 //             $(".roomName").append(data.location.name);
 //             $(".nextField").append(data.location.actions);
 
+
+
 //             if (data.location.actions == "Fight") {
 //                 $(".nextField").attr("data-toggle", "modal");
 //                 $(".nextField").attr("data-target", ".battle-modal");
@@ -191,7 +191,41 @@ $(document).ready(function () {
     //     }
     // });
 
->>>>>>> origin
+
+//             if (data.location.actions == "Fight") {
+//                 $(".nextField").attr("data-toggle", "modal");
+//                 $(".nextField").attr("data-target", ".battle-modal");
+//             }
+
+//             else if (data.location.actions == "Continue") {
+//                 $(".nextField").on("click", function (event) {
+//                     event.preventDefault();
+//                 $.post("/reservations", newReservation);
+//             }
+//             )}
+            
+//         });
+//     }
+// }
+
+
+    // // DO IT AGAIN FOR ROOM INFO
+    // $.get("/api/game", function (data) {
+    //     console.log(data);
+    //     if (data) {
+    //         for (i in data) {
+    //             // <ul id="roomThings" class="list-group">
+    //             // <li class="list-group-item">GOBLIN</li>
+    //             // </ul>
+
+    //             var roomObj = data[i];
+
+                
+            
+    //         }
+    //     }
+    // });
+
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
     // <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
 

@@ -3,13 +3,10 @@ var playerHP = "";
 var playerATK = "";
 var playerInfo = {};
 var enemyInfo = {};
-<<<<<<< HEAD
+
 var gameId = localStorage.gameId;
 gameId=36;
-=======
-var gameId = localStorage.GameId;
-console.log(gameId);
->>>>>>> f660f4e73b0272ab6edd6a6c04bb702a3de85691
+
 
 
 $.get("/api/game/" + gameId, function (data) {
@@ -20,12 +17,12 @@ $.get("/api/game/" + gameId, function (data) {
     var currentLocation = locations[currentLocationIndex];
     console.log(currentLocation);
     var enemy = currentLocation.enemy;
-<<<<<<< HEAD
+
     // console.log(enemy);
     enemyInfo.name = enemy.name;
     enemyInfo.HP = enemy.hp;
     enemyInfo.ATK = enemy.atk;
-=======
+
 
     if (enemy) {
         enemyInfo.name = enemy.name;
@@ -33,8 +30,7 @@ $.get("/api/game/" + gameId, function (data) {
         enemyInfo.ATK = enemy.atk;
     }
     // console.log(enemy);
-    
->>>>>>> f660f4e73b0272ab6edd6a6c04bb702a3de85691
+
 
     var player = game.Player;
 
