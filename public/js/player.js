@@ -14,7 +14,8 @@ function characterComplete() {
 }
 
 $(document).ready(function () {
-    var charSprite;
+    var charSprite = "";
+    var spritebattle = "";
     $(".glyphicon-ok").hide();
     $("#editToggle").click(function () {
     if ($(this).parents().siblings("input").is("[readonly]")) {
@@ -312,6 +313,7 @@ $(document).ready(function () {
         console.log(charClass);
         if (charClass == "barbarian") {
             charSprite = "/images/Sprites/male/Barbarian/pose3.png";
+            spritebattle = "/images/Sprites/male/Barbarian/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Barbarian");
             $(".infoText").empty();
@@ -319,6 +321,7 @@ $(document).ready(function () {
         }
         else if (charClass == "bard") {
             charSprite = "/images/Sprites/male/Bard/pose3.png";
+            spritebattle = "/images/Sprites/male/Bard/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Bard");
             $(".infoText").empty();
@@ -326,6 +329,7 @@ $(document).ready(function () {
         }
         else if (charClass == "cleric") {
             charSprite = "/images/Sprites/male/Cleric/pose3.png";
+            spritebattle = "/images/Sprites/male/Cleric/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Cleric");
             $(".infoText").empty();
@@ -333,6 +337,7 @@ $(document).ready(function () {
         }
         else if (charClass == "druid") {
             charSprite = "/images/Sprites/male/Druid/pose3.png";
+            spritebattle = "/images/Sprites/male/Druid/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Druid");
             $(".infoText").empty();
@@ -340,6 +345,7 @@ $(document).ready(function () {
         }
         else if (charClass == "fighter") {
             charSprite = "/images/Sprites/male/Fighter/pose3.png";
+            spritebattle = "/images/Sprites/male/Fighter/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Fighter");
             $(".infoText").empty();
@@ -347,6 +353,7 @@ $(document).ready(function () {
         }
         else if (charClass == "monk") {
             charSprite = "/images/Sprites/male/Monk/pose3.png";
+            spritebattle = "/images/Sprites/male/Monk/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Monk");
             $(".infoText").empty();
@@ -354,6 +361,7 @@ $(document).ready(function () {
         }
         else if (charClass == "paladin") {
             charSprite = "/images/Sprites/male/Paladin/pose3.png";
+            spritebattle = "/images/Sprites/male/Paladin/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Paladin");
             $(".infoText").empty();
@@ -361,6 +369,7 @@ $(document).ready(function () {
         }
         else if (charClass == "ranger") {
             charSprite = "/images/Sprites/male/Ranger/pose3.png";
+            spritebattle = "/images/Sprites/male/Ranger/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Ranger");
             $(".infoText").empty();
@@ -368,6 +377,7 @@ $(document).ready(function () {
         }
         else if (charClass == "rogue") {
             charSprite = "/images/Sprites/male/Rogue/pose3.png";
+            spritebattle = "/images/Sprites/male/Rogue/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Rogue");
             $(".infoText").empty();
@@ -375,6 +385,7 @@ $(document).ready(function () {
         }
         else if (charClass == "sorcerer") {
             charSprite = "/images/Sprites/male/Sorcerer/pose3.png";
+            spritebattle = "/images/Sprites/male/Sorcerer/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Sorcerer");
             $(".infoText").empty();
@@ -382,6 +393,7 @@ $(document).ready(function () {
         }
         else if (charClass == "warlock") {
             charSprite = "/images/Sprites/male/Warlock/pose3.png";
+            spritebattle = "/images/Sprites/male/Warlock/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Warlock");
             $(".infoText").empty();
@@ -389,6 +401,7 @@ $(document).ready(function () {
         }
         else if (charClass == "warlord") {
             charSprite = "/images/Sprites/male/Warlord/pose3.png";
+            spritebattle = "/images/Sprites/male/Warlord/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Warlord");
             $(".infoText").empty();
@@ -396,6 +409,7 @@ $(document).ready(function () {
         }
         else if (charClass == "wizard") {
             charSprite = "/images/Sprites/male/Wizard/pose3.png";
+            spritebattle = "/images/Sprites/male/Wizard/left_walk1.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Wizard");
             $(".infoText").empty();
@@ -509,6 +523,7 @@ $(document).ready(function () {
                 var cha = $(".charCHA").text();
                 var alignment = $(".charAlign").val().trim();
                 var sprite = charSprite;
+                var spritebattle = charSpriteBattle;
     
                 var newCharacter = {
                     name: $("#playerName").val().trim(),
@@ -518,6 +533,7 @@ $(document).ready(function () {
                     hp: parseInt($(".charCON").val().trim() + parseInt(100)),
                     atk: parseInt(str),
                     spriteURL: charSprite,
+                    spriteURL_battle: spritebattle,
                     charPortrait: portrait,
                     GameId: GameId
                 };
