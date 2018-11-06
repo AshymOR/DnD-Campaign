@@ -19,6 +19,10 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/sprites/:spriteURL", function(req, res) {
+        res.send(path.join(__dirname, req.params.spriteURL));
+    })
+
     // Creates a new player
     app.post("/api/player/", function (req, res) {
 
