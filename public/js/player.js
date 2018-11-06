@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var charSprite;
     $(".glyphicon-ok").hide();
     $("#editToggle").click(function () {
     if ($(this).parents().siblings("input").is("[readonly]")) {
@@ -275,78 +276,91 @@ $(document).ready(function () {
         let charClass = $(".charClass").val();
         console.log(charClass);
         if (charClass == "barbarian") {
+            charSprite = "../images/Sprites/male/Barbarian/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Barbarian");
             $(".infoText").empty();
             $(".infoText").append("In battle, they fight with primal ferocity. They are the relentless combatant, fueled by fury or their totem bonds with animals. They are tune with the natural order.");
         }
         else if (charClass == "bard") {
+            charSprite = "../images/Sprites/male/Bard/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Bard");
             $(".infoText").empty();
             $(".infoText").append("They have learned to untangle and reshape the fabric of reality in harmony with their wishes and music. Their spells are part of their vast repertoire--a magic that they can tune to different situations. They use their wits, magic, and lore to get out of (or avoid) tight situations.");
         }
         else if (charClass == "cleric") {
+            charSprite = "../images/Sprites/male/Cleric/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Cleric");
             $(".infoText").empty();
             $(".infoText").append("Clerics are intermediaries between the mortal world and the distant planes of the gods. As varied as the gods they serve, they strive to embody the handiwork of their deities. They are a conduit for divine power.");
         }
         else if (charClass == "druid") {
+            charSprite = "../images/Sprites/male/Druid/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Druid");
             $(".infoText").empty();
             $(".infoText").append("A nomad devoted to the world and the powers of Nature. They are capable of adopting the form of a beast for battle or utility, of bolstering the party or healing their wounds, or laying low their enemies with nature's wrath. They know Druidic, the secret language of Druids, and can use it to leave hidden messages.");
         }
         else if (charClass == "fighter") {
+            charSprite = "../images/Sprites/male/Fighter/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Fighter");
             $(".infoText").empty();
             $(".infoText").append("Questing knights, conquering overlords, royal champions, elite foot soldiers, hardened mercenaries, and bandit kings—as fighters, they all share an unparalleled mastery with weapons and armor, and a thorough knowledge of the skills of combat.");
         }
         else if (charClass == "monk") {
+            charSprite = "../images/Sprites/male/Monk/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Monk");
             $(".infoText").empty();
             $(".infoText").append("They are martial artists pulling on the power of their own body to produce impressive results. Monks are masters of the human body, the chakras, and of combat. They are often very calm, and slow to anger. Many will have a sense of mysticism about them, while others are very open and philosophical, questioning everything.");
         }
         else if (charClass == "paladin") {
+            charSprite = "../images/Sprites/male/Paladin/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Paladin");
             $(".infoText").empty();
             $(".infoText").append("The paladin is a warrior who has awakened to the underlying truth of the universe: that there exists a cosmic struggle between good and evil, an all-encompassing war between Light and Darkness. Only those who acknowledge the Almighty Creator, the Original from Whom all things come, only those who accept His grace and guidance, can stand against the demonic.");
         }
         else if (charClass == "ranger") {
+            charSprite = "../images/Sprites/male/Ranger/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Ranger");
             $(".infoText").empty();
             $(".infoText").append("Far from the bustle of cities and towns, amid the dense-packed trees of trackless forests and across wide and empty plains, rangers keep their unending watch. They have significant experience studying, tracking, hunting, and even talking to certain types of enemies.");
         }
         else if (charClass == "rogue") {
+            charSprite = "../images/Sprites/male/Rogue/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Rogue");
             $(".infoText").empty();
             $(".infoText").append("Rogues rely on skill, stealth, and their foes’ vulnerabilities to get the upper hand in any situation. They have a knack for finding the solution to just about any problem, bringing resourcefulness and versatility to their adventuring parties.");
         }
         else if (charClass == "sorcerer") {
+            charSprite = "../images/Sprites/male/Sorcerer/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Sorcerer");
             $(".infoText").empty();
             $(".infoText").append("A magic user who draws their power from within, summoning their innate magical power and bending it to their will. An event in their past, or in the life of a parent or ancestor, left an indelible mark on them, infusing them with arcane magic. This font of magic, whatever its origin, fuels their spells.");
         }
         else if (charClass == "warlock") {
+            charSprite = "../images/Sprites/male/Warlock/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Warlock");
             $(".infoText").empty();
             $(".infoText").append("Pacted to a powerful entity, the warlock trades favors for boons and spells. Their arcane research and the magic bestowed on them by their patron have given them facility with spells. In their study of occult lore, they have unearthed eldritch invocations, fragments of forbidden knowledge that imbue them with an abiding magical ability.");
         }
         else if (charClass == "warlord") {
+            charSprite = "../images/Sprites/male/Warlord/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Warlord");
             $(".infoText").empty();
             $(".infoText").append("Accomplished Commanders, Warlords stand on the front line issuing orders and bolstering their allies with weapon in hand. Warlords know how to rally a team to win a fight. The Path of the Warlord is an exercise in leadership and willpower, as the barbarian accepts responsibility for their allies, and helps inspire them to greatness. Their allies come to respect their judgement, trust their instincts, and follow them into danger without hesitation.");
         }
         else if (charClass == "wizard") {
+            charSprite = "../images/Sprites/male/Wizard/pose3.png";
             $(".infoTitle").empty();
             $(".infoTitle").html("Wizard");
             $(".infoText").empty();
@@ -433,6 +447,7 @@ $(document).ready(function () {
 
             // The game currently has no use for these, but they're stored here for future use.
             var portrait = $(".charPortrait").val().trim()
+            var sprite = charSprite;
             var str = $(".charSTR").text();
             var dex = $(".charDEX").text();
             var con = $(".charCON").text();
@@ -448,7 +463,7 @@ $(document).ready(function () {
                 class: $(".charClass").val().trim(),
                 hp: parseInt($(".charCON").val().trim() + parseInt(100)),
                 atk: parseInt(str),
-                spriteURL: "#",
+                spriteURL: sprite,
                 GameId: GameId
             };
             $.post("/api/player", newCharacter).then(function() {
