@@ -2,7 +2,11 @@ module.exports = function(sequelize, DataTypes) {
     var Game = sequelize.define("Game", {
         code: DataTypes.STRING,
         locations: DataTypes.JSON,
-        currentLocI: DataTypes.INTEGER
+        currentLocI: {
+            type = DataTypes.INTEGER,
+            defaultValue = 0,
+            allowNull = false
+        }
     });
 
     Game.associate = function(models) {
