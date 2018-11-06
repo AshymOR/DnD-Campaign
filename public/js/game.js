@@ -19,7 +19,17 @@ $(document).ready(function () {
                 localStorage.setItem("maxHP", data[0].Player.hp);
                 localStorage.setItem("maxHPSet", true);
             }
-            $("#name-header").text(name);
+
+            var maxHP = localStorage.getItem("maxHP");
+            var hp = data[0].Player.hp;
+
+            if (name) {
+                $("#name-header").text(name);
+            }
+
+            if (maxHP != null && hp != null) {
+                $("#hp").text(hp + "/" + maxHP);
+            }
             
         });
     }
