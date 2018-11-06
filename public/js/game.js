@@ -175,6 +175,7 @@ $(document).ready(function () {
                 
             
             }
+        }
     });
 
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
