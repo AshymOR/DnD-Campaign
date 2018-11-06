@@ -29,6 +29,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             defaultValue: "#"
         },
+        spriteURL_battle: {
+            type: DataTypes.STRING,
+            defaultValue: "#"
+        },
         charPortrait: {
             type: DataTypes.STRING,
             allowNull: false
