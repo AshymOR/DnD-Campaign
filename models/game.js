@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
         locations: DataTypes.STRING,
         currentLocI:  {
             type: DataTypes.INTEGER,
+            allowNull: false,
             defaultValue: 0
         }
     });

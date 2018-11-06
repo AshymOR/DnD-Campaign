@@ -1,23 +1,71 @@
-
 body {
-    background-image: url("../images/Landing Page/results.jpg");
-        }
-h5 {
+    background-image: url("../images/Landing Page/Dragon.jpg");
+
+   
+}
+
+.flex-container{
+    background-color: ivory;
+    opacity: .7;
     font-family: 'MedievalSharp', cursive;
-    text-align: center;
+    border: black solid 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 25px;
         }
+
+.flex-container2{
+    border: black solid 5px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: black 2px solid;
+    border-radius: 25px;
+
+}
+
+
 p  {
-    color: black;
+    font-family: 'MedievalSharp', cursive;
+    color: rgb(202, 31, 25);
+    text-shadow: black 2px 2px;
+    text-align: center;
+    font-size: 75px;
+        }
+
+h3{
+    font-family: 'MedievalSharp', cursive;
+    color: rgb(202, 31, 25);
+    text-shadow: black 2px 2px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.footer{
+    font:  ghostwhite;
     font-family: 'MedievalSharp', cursive;
     text-align: center;
-    font-size: 30px;
-        }
-.figure-caption {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+        
+}
+/* body {
+    background-image: url("../images/Landing Page/results.jpg");
+        } */
+/* h1 {
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    color: black;
+    
+        } */
+
+/* .figure-caption {
     color: black;
     font-family: 'MedievalSharp', cursive;
         }
           
-.card{
+.container{
     color: black;
     font-family: 'MedievalSharp', cursive;
     margin-right: 30%;
@@ -26,7 +74,7 @@ p  {
     border: black 2px solid;
         }
 
-.table{
+/* .table{
     color: black;
     font-family: 'MedievalSharp', cursive;
     background-color: ghostwhite;
@@ -35,14 +83,9 @@ p  {
     width: 500px;
     border: black 2px solid;
 
-}
-
-h1{
-    color: black;
-    font-family: 'MedievalSharp', cursive;
-    margin-right: 30%;
-    margin-left: 50%;
-        }
+} */
+]
+    
 
 
  

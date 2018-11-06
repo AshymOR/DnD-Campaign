@@ -137,11 +137,10 @@ $(document).ready(function () {
 
                 var roomDiv = $("<li class='list-group-item'>");
 
-                var roomItem = $(roomObj.enemy.name);
+            var roomItem = $(roomObj.enemy.name);
 
-                roomDiv.append(roomItem);
-                $("#roomThings").append(roomDiv);
-            }
+            roomDiv.append(roomItem);
+            $("#roomThings").append(roomDiv);
             $(".adventures").append(data.location.flavText);
             $(".roomName").empty();
             $(".roomName").append(data.location.name);
@@ -158,6 +157,22 @@ $(document).ready(function () {
         
                 $.post("/reservations", newReservation);
             })}
+            
+        });
+    }
+
+    // DO IT AGAIN FOR ROOM INFO
+    $.get("/api/game", function (data) {
+        console.log(data);
+        if (data) {
+            for (i in data) {
+                // <ul id="roomThings" class="list-group">
+                // <li class="list-group-item">GOBLIN</li>
+                // </ul>
+
+                var roomObj = data[i];
+
+                
             
             }
     });
