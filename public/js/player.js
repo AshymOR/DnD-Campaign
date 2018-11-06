@@ -1,3 +1,18 @@
+// variables to determine if all four selections have been made
+var raceSelected = false;
+var genderSelected = false;
+var classSelected = false;
+var alignSelected = false;
+
+function characterComplete() {
+    var response = false;
+    if (raceSelected && genderSelected && classSelected && alignSelected) {
+        response = true;
+    }
+
+    return response;
+}
+
 $(document).ready(function () {
     var charSprite;
     $(".glyphicon-ok").hide();
@@ -13,15 +28,20 @@ $(document).ready(function () {
     }
     });
 
-    // variables to determine if all four selections have been made
-    // var raceSelected = false;
-    // var genderSelected = false;
-    // var classSelected = false;
-    // var alignSelected = false;
+    $(".charGender").change(function() {
+        genderSelected = true;
+        if (characterComplete()) {
+            $("#submitChar").prop("disabled", false)
+        }
+    });
 
     $(".charRace").change(function() {
         let charRace = $(".charRace").val();
         let charGender = $(".charGender").val();
+        raceSelected = true;
+        if (characterComplete()) {
+            $("#submitChar").prop("disabled", false)
+        }
         function statRolls () {
             charSTR = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
             charDEX = parseInt(Math.floor(Math.random() * (25 - 6) + 6));
@@ -285,6 +305,10 @@ $(document).ready(function () {
     });
     $(".charClass").change(function() {
         let charClass = $(".charClass").val();
+        classSelected = true;
+        if (characterComplete()) {
+            $("#submitChar").prop("disabled", false)
+        }
         console.log(charClass);
         if (charClass == "barbarian") {
             charSprite = "/images/Sprites/male/Barbarian/pose3.png";
@@ -385,6 +409,10 @@ $(document).ready(function () {
     $(".charAlign").change(function() {
         let charAlign = $(".charAlign").val();
         console.log(charAlign);
+        alignSelected = true;
+        if (characterComplete()) {
+            $("#submitChar").prop("disabled", false)
+        }
         if (charAlign == "lawful-good") {
             $(".infoTitle").empty();
             $(".infoTitle").html("Crusader");
@@ -495,6 +523,8 @@ $(document).ready(function () {
                 $.post("/api/player", newCharacter).then(function() {
                     // this changes href to get a game id
                     $("#toGame").attr("href", "/game/");
+                
+                    $("#toGameBtn").prop("disabled", false);
                 });
             });
         }
