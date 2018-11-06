@@ -424,27 +424,32 @@ $(document).ready(function () {
     $("#submitChar").click(function(event) {
         event.preventDefault();
 
-        var gameId;
+        var GameId;
         
         // Player is ready to submit character. Create game, then create character.
         $.post("/api/game").then(function (response) {
             console.log(response.id);
-            gameId = response.id;
+            GameId = response.id;
+
+            // The game currently has no use for these, but they're stored here for future use.
+            var portrait = $(".charPortrait").val().trim()
+            var str = $(".charSTR").val().trim();
+            var dex = $(".charDEX").val().trim();
+            var con = $(".charCON").val().trim();
+            var int = $(".charINT").val().trim();
+            var wis = $(".charWIS").val().trim();
+            var cha = $(".charCHA").val().trim();
+            var alignment = $(".charAlign").val().trim();
 
             var newCharacter = {
                 name: $("#playerName").val().trim(),
                 gender: $(".charGender").val().trim(),
                 race: $(".charRace").val().trim(),
                 class: $(".charClass").val().trim(),
-                alignment: $(".charAlign").val().trim(),
-                portrait: $(".charPortrait").val().trim(),
-                str: $(".charSTR").val().trim(),
-                dex: $(".charDEX").val().trim(),
-                con: $(".charCON").val().trim(),
-                int: $(".charINT").val().trim(),
-                wis: $(".charWIS").val().trim(),
-                cha: $(".charCHA").val().trim(),
-                hp: parseInt($(".charCON").val().trim() + parseInt(100))
+                hp: parseInt($(".charCON").val().trim() + parseInt(100)),
+                atk: str,
+                spriteURL: "#",
+                GameId: GameId
             };
             $.post("/api/player", newCharacter);
         });
