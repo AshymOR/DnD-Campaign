@@ -32,7 +32,7 @@ h5{
 
 }
 
-#adventureLog{
+.adventureLog{
     background-image: url(../images/backDrops/adventureLog.jpg);
     background-position: center;
     color: rgb(104, 30, 28);

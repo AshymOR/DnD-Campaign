@@ -55,13 +55,9 @@ $(document).ready(function () {
 
             // 1. Figure out the game's location
             var currentLocationIndex = data[0].currentLocI;
-            console.log(typeof data[0].locations);
             var locations = data[0].locations;
-            console.log(locations);
             var currentLocation = locations[currentLocationIndex];
-            console.log("Current location index " + currentLocationIndex);
-
-            console.log("Current location: " + currentLocation)
+            
 
             // 2. Get the info for the enemy at that location
             var enemy = currentLocation.enemy;
@@ -85,7 +81,16 @@ $(document).ready(function () {
                 cardBody.append(p);
 
                 roomItemCard.append(cardBody);
-                $("#roomThings").append(roomItemCard);            }
+                $("#roomThings").append(roomItemCard);            
+            }
+
+            //////////////////////////////
+            // LOCATION INFORMATION
+            $("#flavorText").text(currentLocation.flavText);
+
+            $("#roomName").text(currentLocation.name);
+
+
         });
     }
 
@@ -125,58 +130,57 @@ $(document).ready(function () {
     // });
 
     // DO IT AGAIN FOR ROOM INFO
-    $.get("/api/game", function (data) {
-        console.log(data);
-        if (data) {
-            for (i in data) {
-                // <ul id="roomThings" class="list-group">
-                // <li class="list-group-item">GOBLIN</li>
-                // </ul>
+    // $.get("/api/game", function (data) {
+    //     console.log(data);
+    //     if (data[0]) {
+    //             // <ul id="roomThings" class="list-group">
+    //             // <li class="list-group-item">GOBLIN</li>
+    //             // </ul>
 
-                var roomObj = data[i];
+    //             var roomObj = data[0;
 
-                var roomDiv = $("<li class='list-group-item'>");
+    //             var roomDiv = $("<li class='list-group-item'>");
 
-            var roomItem = $(roomObj.enemy.name);
+    //         var roomItem = $(roomObj.enemy.name);
 
-            roomDiv.append(roomItem);
-            $("#roomThings").append(roomDiv);
-            $(".adventures").append(data.location.flavText);
-            $(".roomName").empty();
-            $(".roomName").append(data.location.name);
-            $(".nextField").append(data.location.actions);
+    //         roomDiv.append(roomItem);
+    //         $("#roomThings").append(roomDiv);
+    //         $(".adventures").append(data.location.flavText);
+    //         $(".roomName").empty();
+    //         $(".roomName").append(data.location.name);
+    //         $(".nextField").append(data.location.actions);
 
-            if (data.location.actions == "Fight") {
-                $(".nextField").attr("data-toggle", "modal");
-                $(".nextField").attr("data-target", ".battle-modal");
-            }
+    //         if (data.location.actions == "Fight") {
+    //             $(".nextField").attr("data-toggle", "modal");
+    //             $(".nextField").attr("data-target", ".battle-modal");
+    //         }
 
-            else if (data.location.actions == "Continue") {
-                $(".nextField").on("click", function (event) {
-                    event.preventDefault();
+    //         else if (data.location.actions == "Continue") {
+    //             $(".nextField").on("click", function (event) {
+    //                 event.preventDefault();
         
-                $.post("/reservations", newReservation);
-            })}
-            
-        });
-    }
+    //             $.post("/reservations", newReservation);
+    //         })}
+    //     }
+    // });
+    
 
-    // DO IT AGAIN FOR ROOM INFO
-    $.get("/api/game", function (data) {
-        console.log(data);
-        if (data) {
-            for (i in data) {
-                // <ul id="roomThings" class="list-group">
-                // <li class="list-group-item">GOBLIN</li>
-                // </ul>
+    // // DO IT AGAIN FOR ROOM INFO
+    // $.get("/api/game", function (data) {
+    //     console.log(data);
+    //     if (data) {
+    //         for (i in data) {
+    //             // <ul id="roomThings" class="list-group">
+    //             // <li class="list-group-item">GOBLIN</li>
+    //             // </ul>
 
-                var roomObj = data[i];
+    //             var roomObj = data[i];
 
                 
             
-            }
-        }
-    });
+    //         }
+    //     }
+    // });
 
     // DYNAMICALLY ADD TO THE ADVENTURE LOG
     // <p class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
@@ -263,4 +267,5 @@ $(document).ready(function () {
         //     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         // </div>
         // ONCE DECISION IS MADE, close DECISION modal & update location API & reload game page & recall location API
-})
+});
+
