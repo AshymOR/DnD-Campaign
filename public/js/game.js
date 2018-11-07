@@ -138,6 +138,10 @@ $(document).ready(function () {
 
                 // Set the modal target for the continue button
                 $("#continue-button").attr("data-target", ".battle-modal");
+                
+                // Save the lich to local storage for use in battle.js
+                var stringifiedEnemy = JSON.stringify(currentLocation.enemy);
+                localStorage.setItem("CurrentEnemy", stringifiedEnemy);
             } 
             else if (currentLocationIndex === 3) {
                 // Player has beaten the boss. From here they can continue to the end screen.
