@@ -106,6 +106,9 @@ $(document).ready(function () {
             if (currentLocationIndex === 0) {
                 // Player is at Village. From here they can continue to the dungeon entrance.
                 
+                // Set the modal target for the continue button
+                $("#continue-button").attr("data-target", ".decision-modal");
+
                 // Update the decision modal
                 // Text
                 var decisionText = "You decide to head to the crypt to investigate."
@@ -114,16 +117,27 @@ $(document).ready(function () {
                 $("#decision-one").text("Go to the Ancient Crypt");
                 $("#decision-one").attr("leadsTo", "1")
                 $("#decision-two").hide();
-                $("#continue-button").attr("data-target", ".decision-modal")
-
             } 
             else if (currentLocationIndex === 1) {
                 // Player is at Dungeon Entrance/First Chamber. From here they can go to the boss room.
 
+                // Set the modal target for the continue button
+                $("#continue-button").attr("data-target", ".decision-modal");
+
+                // Update the decision modal
+                // Text
+                var decisionText = "Ahead of you is a door to the next chamber."
+                $("#decision-text").text(decisionText)
+                // Buttons
+                $("#decision-one").text("Open the Door");
+                $("#decision-one").attr("leadsTo", "2")
+                $("#decision-two").hide();
             } 
             else if (currentLocationIndex === 2) {
                 // Player is at the Boss Room/Blood Chamber. Time to throw down, liches!
 
+                // Set the modal target for the continue button
+                $("#continue-button").attr("data-target", ".battle-modal");
             } 
             else if (currentLocationIndex === 3) {
                 // Player has beaten the boss. From here they can continue to the end screen.
