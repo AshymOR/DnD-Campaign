@@ -24,6 +24,16 @@ $.get("/api/game/" + gameId, function (data) {
     GameInfo = data;
     console.log(Game);
 
+    var WTFmath = Game.currentLocI;
+    console.log(WTFmath);
+
+    WTFmath = WTFmath + parseInt(1);
+    console.log(WTFmath);
+
+    // WTF why does this set currentLocI to NaN???? WTFmath works just fine. I'm so confused. My husband is confused. Please help us understand this. It took us hours.
+    // GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+    // console.log(GameInfo[0]);
+
     // console.log(enemy);
     enemyInfo.name = enemy.name;
     enemyInfo.HP = enemy.hp;
@@ -218,7 +228,7 @@ var Message = new Phaser.Class({
  
     initialize:
     function Message(scene, events) {
-        Phaser.GameObjects.Container.call(this, scene, 160, 30);
+        Phaser.GameObjects.Container.call(this, scene, 160, 130);
         var graphics = this.scene.add.graphics();
         this.add(graphics);
         graphics.lineStyle(1, 0xffffff, 0.8);
@@ -271,6 +281,102 @@ var BootScene = new Phaser.Class({
     {
         this.scene.start('BattleScene');
     }
+});
+
+var UIScene = new Phaser.Class({
+ 
+    Extends: Phaser.Scene,
+ 
+    initialize:
+ 
+    function UIScene ()
+    {
+        Phaser.Scene.call(this, { key: 'UIScene' });
+    },
+ 
+    create: function ()
+    {    
+        this.graphics = this.add.graphics();
+        this.graphics.lineStyle(1, 0xffffff);
+        this.graphics.fillStyle(0x031f4c, 1);        
+        this.graphics.strokeRect(2, 150, 90, 100);
+        this.graphics.fillRect(2, 150, 90, 100);
+        this.graphics.strokeRect(95, 150, 90, 100);
+        this.graphics.fillRect(95, 150, 90, 100);
+        this.graphics.strokeRect(188, 150, 130, 100);
+        this.graphics.fillRect(188, 150, 130, 100);
+
+        // basic container to hold all menus
+        this.menus = this.add.container();
+                
+        this.heroesMenu = new HeroesMenu(195, 153, this);           
+        this.actionsMenu = new ActionsMenu(100, 153, this);            
+        this.enemiesMenu = new EnemiesMenu(8, 153, this);   
+        
+        // the currently selected menu 
+        this.currentMenu = this.actionsMenu;
+        
+        // add menus to the container
+        this.menus.add(this.heroesMenu);
+        this.menus.add(this.actionsMenu);
+        this.menus.add(this.enemiesMenu);
+
+        // add in battle scene
+        this.battleScene = this.scene.get('BattleScene');
+        this.remapHeroes();
+        this.remapEnemies();
+
+        // add keyboard listening events
+        this.input.keyboard.on('keydown', this.onKeyInput, this);
+
+        this.battleScene.events.on("PlayerSelect", this.onPlayerSelect, this);
+        this.events.on("SelectEnemies", this.onSelectEnemies, this);
+        this.events.on("Enemy", this.onEnemy, this);
+        this.battleScene.nextTurn();
+
+        this.message = new Message(this, this.battleScene.events);
+        this.add.existing(this.message);
+    },
+
+    remapHeroes: function() {
+        var heroes = this.battleScene.heroes;
+        this.heroesMenu.remap(heroes);
+    },
+    remapEnemies: function() {
+        var enemies = this.battleScene.enemies;
+        this.enemiesMenu.remap(enemies);
+    },
+
+    onKeyInput: function(event) {
+        if(this.currentMenu) {
+            if(event.code === "ArrowUp") {
+                this.currentMenu.moveSelectionUp();
+            } else if(event.code === "ArrowDown") {
+                this.currentMenu.moveSelectionDown();
+            } else if(event.code === "ArrowRight" || event.code === "Shift") {
+ 
+            } else if(event.code === "Space" || event.code === "ArrowLeft") {
+                this.currentMenu.confirm();
+                this.message.showMessage("You deal the enemy a vicious blow!");
+            } 
+        }
+    },
+    onPlayerSelect: function(id) {
+        this.heroesMenu.select(id);
+        this.actionsMenu.select(0);
+        this.currentMenu = this.actionsMenu;
+    },
+    onSelectEnemies: function() {
+        this.currentMenu = this.enemiesMenu;
+        this.enemiesMenu.select(0);
+    },
+    onEnemy: function(index) {
+        this.heroesMenu.deselect();
+        this.actionsMenu.deselect();
+        this.enemiesMenu.deselect();
+        this.currentMenu = null;
+        this.battleScene.receivePlayerSelection('attack', index);
+    },
 });
  
 var BattleScene = new Phaser.Class({
@@ -335,18 +441,14 @@ var BattleScene = new Phaser.Class({
                 this.time.addEvent({ delay: 2000, callback: this.nextTurn, callbackScope: this });
                 console.log("Player HP remaining: " + this.heroes[r].hp);
                 if (this.heroes[r].hp <= 0) {
-                    console.log(GameInfo);
-                    GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+                    GameInfo[0].currentLocI += 1;
                     $.ajax({
                         method: "PUT",
                         url: "/api/game/",
-                        data: GameInfo
+                        data: GameInfo[0]
                     }).then(function(response) {
-                        console.log(response);
                         var someIframe = window.parent.document.getElementById("battle-modal");
-                        console.log(someIframe);
-                            // someIframe.parentNode.removeChild(someIframe);
-                            // window.parent.location.reload();
+                            window.parent.location.reload();
                     });
                 }
             }
@@ -359,115 +461,17 @@ var BattleScene = new Phaser.Class({
             this.time.addEvent({ delay: 500, callback: this.nextTurn, callbackScope: this });
             console.log("Enemy HP: " + this.enemies[target].hp); 
             if (this.enemies[target].hp <= 0) {
-                console.log(GameInfo);
-                GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+                GameInfo[0].currentLocI += 1;
                 $.ajax({
                     method: "PUT",
                     url: "/api/game/",
-                    data: GameInfo
+                    data: GameInfo[0]
                 }).then(function(response) {
-                    console.log(response);
                     var someIframe = window.parent.document.getElementById("battle-modal");
-                    console.log(someIframe);
-                        //someIframe.parentNode.removeChild(someIframe);
-                        // window.parent.location.reload();
+                        window.parent.location.reload();
                 });
             }       
         }
-});
- 
-var UIScene = new Phaser.Class({
- 
-    Extends: Phaser.Scene,
- 
-    initialize:
- 
-    function UIScene ()
-    {
-        Phaser.Scene.call(this, { key: 'UIScene' });
-    },
- 
-    create: function ()
-    {    
-        this.graphics = this.add.graphics();
-        this.graphics.lineStyle(1, 0xffffff);
-        this.graphics.fillStyle(0x031f4c, 1);        
-        this.graphics.strokeRect(2, 150, 90, 100);
-        this.graphics.fillRect(2, 150, 90, 100);
-        this.graphics.strokeRect(95, 150, 90, 100);
-        this.graphics.fillRect(95, 150, 90, 100);
-        this.graphics.strokeRect(188, 150, 130, 100);
-        this.graphics.fillRect(188, 150, 130, 100);
-
-        // basic container to hold all menus
-        this.menus = this.add.container();
-                
-        this.heroesMenu = new HeroesMenu(195, 153, this);           
-        this.actionsMenu = new ActionsMenu(100, 153, this);            
-        this.enemiesMenu = new EnemiesMenu(8, 153, this);   
-        
-        // the currently selected menu 
-        this.currentMenu = this.actionsMenu;
-        
-        // add menus to the container
-        this.menus.add(this.heroesMenu);
-        this.menus.add(this.actionsMenu);
-        this.menus.add(this.enemiesMenu);
-
-        // add in battle scene
-        this.battleScene = this.scene.get('BattleScene');
-        this.remapHeroes();
-        this.remapEnemies();
-
-        // add keyboard listening events
-        this.input.keyboard.on('keydown', this.onKeyInput, this);
-
-        this.battleScene.events.on("PlayerSelect", this.onPlayerSelect, this);
-        this.events.on("SelectEnemies", this.onSelectEnemies, this);
-        this.events.on("Enemy", this.onEnemy, this);
-        this.battleScene.nextTurn();
-        this.message = new Message(this, this.battleScene.events);
-        this.add.existing(this.message);
-    },
-
-    remapHeroes: function() {
-        var heroes = this.battleScene.heroes;
-        this.heroesMenu.remap(heroes);
-    },
-    remapEnemies: function() {
-        var enemies = this.battleScene.enemies;
-        this.enemiesMenu.remap(enemies);
-    },
-
-    onKeyInput: function(event) {
-        if(this.currentMenu) {
-            if(event.code === "ArrowUp") {
-                this.currentMenu.moveSelectionUp();
-            } else if(event.code === "ArrowDown") {
-                this.currentMenu.moveSelectionDown();
-            } else if(event.code === "ArrowRight" || event.code === "Shift") {
- 
-            } else if(event.code === "Space" || event.code === "ArrowLeft") {
-                this.currentMenu.confirm();
-            } 
-        }
-    },
-    onPlayerSelect: function(id) {
-        this.heroesMenu.select(id);
-        this.actionsMenu.select(0);
-        this.currentMenu = this.actionsMenu;
-    },
-    onSelectEnemies: function() {
-        this.currentMenu = this.enemiesMenu;
-        this.enemiesMenu.select(0);
-    },
-    onEnemy: function(index) {
-        this.heroesMenu.deselect();
-        this.actionsMenu.deselect();
-        this.enemiesMenu.deselect();
-        this.currentMenu = null;
-        this.battleScene.receivePlayerSelection('attack', index);
-    }
 });
  
 var config = {
