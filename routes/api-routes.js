@@ -90,8 +90,11 @@ module.exports = function (app) {
 
     // Updates a game based on the id in the req body.
     app.put("/api/game/", function (req, res) {
+        console.log("Updating game with id " + req.body.id);
+        console.log("New currentLocI: " + req.body.currentLocI); 
+
         db.Game.update(
-            req.body,
+            {currentLocI: req.body.currentLocI},
             {
                 where: {
                     id: req.body.id

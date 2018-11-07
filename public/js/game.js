@@ -1,3 +1,5 @@
+var Game;
+
 $(document).ready(function () {
     // get GameId from localStorage
     var gameId = localStorage.GameId;
@@ -13,18 +15,19 @@ $(document).ready(function () {
             // log data
             console.log(data);
             // get the player's name
-            var name = data[0].Player.name;
-            // log player's name
-            console.log(name);
+            Game = data[0];
+            var name = Game.Player.name;
             // if name isn't null add to name-header element
             if (name) {
                 $("#name-header").text(name);
             }
 
+            console.log("CurrentLocI: " + Game.currentLocI);
+
             //////////////////////////////////
             // GETTING AND USING PLAYER'S SPRITE
             // get player's spriteURL
-            var playerSprite = data[0].Player.spriteURL;
+            var playerSprite = Game.Player.spriteURL;
             // if playerSprite isn't null, set the html element's img src
             if (playerSprite) {
                 $("#playerSprite").attr("src", playerSprite);
@@ -44,7 +47,7 @@ $(document).ready(function () {
             // get maxHP from localStor
             var maxHP = localStorage.getItem("maxHP");
             // set hp variable using Player.hp in db
-            var hp = data[0].Player.hp;
+            var hp = Game.Player.hp;
             // if maxHP and hp aren't null, set the html elements
             if (maxHP != null && hp != null) {
                 $("#hp").text(hp + "/" + maxHP);
@@ -54,8 +57,8 @@ $(document).ready(function () {
             // GETTING AND USING ENEMY
 
             // 1. Figure out the game's location
-            var currentLocationIndex = data[0].currentLocI;
-            var locationsString = data[0].locations;
+            var currentLocationIndex = Game.currentLocI;
+            var locationsString = Game.locations;
             console.log(locationsString);
             var locations = JSON.parse(locationsString);
             console.log(locations);
@@ -94,8 +97,60 @@ $(document).ready(function () {
             $("#roomName").text(currentLocation.name);
 
 
+
+            /////////////////////////////
+            // CONTINUE BUTTON & MODALS
+            $("#continue-button").text(currentLocation.actions);
+
+            // DECIDE NEXT OPTIONS BASED ON CURRENT LOCATION
+            if (currentLocationIndex === 0) {
+                // Player is at Village. From here they can continue to the dungeon entrance.
+                
+                // Update the decision modal
+                // Text
+                var decisionText = "You decide to head to the crypt to investigate."
+                $("#decision-text").text(decisionText)
+                // Buttons
+                $("#decision-one").text("Go to the Ancient Crypt");
+                $("#decision-one").attr("leadsTo", "1")
+                $("#decision-two").hide();
+                $("#continue-button").attr("data-target", ".decision-modal")
+
+            } 
+            else if (currentLocationIndex === 1) {
+                // Player is at Dungeon Entrance/First Chamber. From here they can go to the boss room.
+
+            } 
+            else if (currentLocationIndex === 2) {
+                // Player is at the Boss Room/Blood Chamber. Time to throw down, liches!
+
+            } 
+            else if (currentLocationIndex === 3) {
+                // Player has beaten the boss. From here they can continue to the end screen.
+
+            }
         });
     }
+
+    $(".decision").on("click", function() {
+        var destination = $(this).attr("leadsTo");
+        console.log(parseInt(destination));
+        console.log(Game);
+
+        // Change the game's current location and PUT up to the DB.
+        Game.currentLocI = parseInt(destination);
+
+        $.ajax({
+            url: "/api/game/",
+            method: "PUT",
+            data: Game
+        }).then(function (response) {
+            console.log("Game updated! currentLocI is now " + Game.currentLocI);
+            // Once the DB has been updated, reload the page.
+            location.reload();
+        });
+        
+    });
 
     // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
     // $.get("/api/player/" + gameId, function (data) {
