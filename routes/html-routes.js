@@ -18,18 +18,22 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/index.html"));
   });
 
+  // Loads player.html
   app.get("/player", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/player.html"))
   });
 
+  // Loads game.html
   app.get("/game/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/game.html"))
   });
 
+  // Loads results.html
   app.get("/results", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html.results.html"))
   });
 
+  // Loads battle.html
   app.get("/battle", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/battle.html"))
   });

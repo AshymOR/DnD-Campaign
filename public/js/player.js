@@ -4,6 +4,7 @@ var genderSelected = false;
 var classSelected = false;
 var alignSelected = false;
 
+// Function to check if all character fields have been filled
 function characterComplete() {
     var response = false;
     if (raceSelected && genderSelected && classSelected && alignSelected) {
@@ -14,21 +15,25 @@ function characterComplete() {
 }
 
 $(document).ready(function () {
+
     var charSprite = "";
     var spritebattle = "";
     $(".glyphicon-ok").hide();
+
+    // Name edit toggle functionality
     $("#editToggle").click(function () {
-    if ($(this).parents().siblings("input").is("[readonly]")) {
-        $(this).parents().siblings("input").prop("readonly", false); //turns the readonly off
-        $(".glyphicon-ok").show();
-        $(".glyphicon-pencil").hide(); //hide one glyphicon
-    } else {
-        $(".glyphicon-ok").hide(); //hide one glyphicon
-        $(".glyphicon-pencil").show();
-        $(this).parents().siblings("input").prop("readonly", true); //turns the readonly off
-    }
+        if ($(this).parents().siblings("input").is("[readonly]")) {
+            $(this).parents().siblings("input").prop("readonly", false); //turns the readonly off
+            $(".glyphicon-ok").show();
+            $(".glyphicon-pencil").hide(); //hide one glyphicon
+        } else {
+            $(".glyphicon-ok").hide(); //hide one glyphicon
+            $(".glyphicon-pencil").show();
+            $(this).parents().siblings("input").prop("readonly", true); //turns the readonly off
+        }
     });
 
+    // Fires when the character's gender updates.
     $(".charGender").change(function() {
         genderSelected = true;
         if (characterComplete()) {
@@ -36,6 +41,7 @@ $(document).ready(function () {
         }
     });
 
+    // Fires when the character's race updates.
     $(".charRace").change(function() {
         let charRace = $(".charRace").val();
         let charGender = $(".charGender").val();
@@ -304,6 +310,8 @@ $(document).ready(function () {
             $(".infoText").empty();
         }
     });
+
+    // Fires when a character's class updates.
     $(".charClass").change(function() {
         let charClass = $(".charClass").val();
         classSelected = true;
@@ -420,6 +428,8 @@ $(document).ready(function () {
             $(".infoText").empty();
         }
     });
+
+    // Fires when a character's alignment updates.
     $(".charAlign").change(function() {
         let charAlign = $(".charAlign").val();
         console.log(charAlign);
@@ -546,8 +556,4 @@ $(document).ready(function () {
             });
         }
     });
-
-
-    // STILL TO DO: build and hook up the game code modal
-    // STILL TO DO (stretch): build and hook up the party list so that you can see the same info about party members that you can about your player character (but readonly)
 });
