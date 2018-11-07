@@ -4,8 +4,10 @@ var playerATK = "";
 var playerInfo = {};
 var enemyInfo = {};
 
-var gameId = localStorage.gameId;
-gameId=36;
+var gameId = localStorage.getItem("Game");
+if (gameId == null) {
+    gameId = 1
+}
 
 
 
