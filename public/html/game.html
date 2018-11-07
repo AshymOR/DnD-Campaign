@@ -82,7 +82,7 @@
                             </div>
                             <div class="card-body">
                                 <p id="flavorText" class="card-text adventures">You enter a room. Surprise mf-er! There's a goblin!</p>
-                                <button class="btn btn-secondary nextField btn-sm">Continue</button>
+                                <button id="continue-button" class="btn btn-secondary nextField btn-sm" data-toggle="modal" data-target="#">Continue</button>
                             </div>
                         </div>
                     </div>
@@ -198,8 +198,10 @@
                 </div>
                 <div class="modal-body">
                     <img class="img-fluid" alt="Make your choice!" src="https://media1.giphy.com/media/i7CWVT8rOBYoE/giphy.gif?cid=3640f6095bde757555673167516116c9">
-                    <p class="decision-text">In the dark forest, you decide to go to either the hidden temple or the old pirate's caves. After some thought, you decide on...</p>
-                    <button class="btn btn-secondary decision-one">Hidden Temple</button> <i class="far fa-compass"></i> <button class="btn btn-secondary decision-two">Pirate Caves</button>
+                    <p id="decision-text">In the dark forest, you decide to go to either the hidden temple or the old pirate's caves. After some thought, you decide on...</p>
+                    <button id="decision-one" class="btn btn-secondary decision" leadsTo="0">Hidden Temple</button> 
+                    <i class="far fa-compass"></i> 
+                    <button id="decision-two" class="btn btn-secondary decision" leadsTo="0">Pirate Caves</button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
