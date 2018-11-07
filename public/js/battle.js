@@ -9,6 +9,7 @@ if (gameId == null) {
     gameId = 1;
 }
 
+
 var stringifiedEnemy = localStorage.getItem("CurrentEnemy");
 var enemy = JSON.parse(stringifiedEnemy);
 
