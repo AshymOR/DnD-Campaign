@@ -106,8 +106,19 @@ $(document).ready(function () {
             // GETTING GAME CODE FOR SAVE AND QUIT
             $("#save-quit").on("click", function(e) {
                 e.preventDefault();
+                // set code paragraph
                 $("#gameID").text(code);
+                // set href to index.html
+                $("#saq").attr("href", "/");
             })
+
+            //////////////////////////////////////
+            // HANDLING SAVE AND QUIT
+            // $("#saq-modal").on("click", function(e) {
+            //     e.preventDefault();
+                
+            // })
+
     }
 
     // // TAKING THIS FROM HOT RESTAURANT TO GET THE PLAYER INFO
