@@ -497,7 +497,7 @@ $(document).ready(function () {
         let charAlign = $(".charAlign").val();
 
 
-        if (charRace != null && charGender != null && charClass != null && charSprite != null && charAlign != null) {
+        if (charRace != null && charGender != null && charClass != null && charAlign != null) {
 
             console.log("Character created");
             
@@ -523,7 +523,7 @@ $(document).ready(function () {
                 var cha = $(".charCHA").text();
                 var alignment = $(".charAlign").val().trim();
                 var sprite = charSprite;
-                var spritebattle = charSpriteBattle;
+                var charSpriteBattle = spritebattle;
     
                 var newCharacter = {
                     name: $("#playerName").val().trim(),
@@ -533,7 +533,7 @@ $(document).ready(function () {
                     hp: parseInt($(".charCON").val().trim() + parseInt(100)),
                     atk: parseInt(str),
                     spriteURL: charSprite,
-                    spriteURL_battle: spritebattle,
+                    spriteURL_battle: charSpriteBattle,
                     charPortrait: portrait,
                     GameId: GameId
                 };
