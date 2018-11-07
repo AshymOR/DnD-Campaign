@@ -191,8 +191,19 @@ $(document).ready(function () {
             // GETTING GAME CODE FOR SAVE AND QUIT
             $("#save-quit").on("click", function(e) {
                 e.preventDefault();
+                // set code paragraph
                 $("#gameID").text(code);
+                // set href to index.html
+                $("#saq").attr("href", "/");
             })
+
+            //////////////////////////////////////
+            // HANDLING SAVE AND QUIT
+            // $("#saq-modal").on("click", function(e) {
+            //     e.preventDefault();
+                
+            // })
+
     }
 
     $(".decision").on("click", function() {

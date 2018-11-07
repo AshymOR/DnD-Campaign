@@ -23,7 +23,6 @@ $(document).ready(function(){
 
         var code = $("#code").val();
 
-
             $.get("/api/loadgame/" + code, function (data) {
                 // log data
                 if (data) {
