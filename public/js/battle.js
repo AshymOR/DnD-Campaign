@@ -10,15 +10,14 @@ if (gameId == null) {
 }
 
 
+var stringifiedEnemy = localStorage.getItem("CurrentEnemy");
+var enemy = JSON.parse(stringifiedEnemy);
+
+
 
 $.get("/api/game/" + gameId, function (data) {
     console.log(data)
     var game = data[0];
-    var currentLocationIndex = data[0].currentLocI;
-    var locations = data[0].locations;
-    var currentLocation = locations[currentLocationIndex];
-    console.log(currentLocation);
-    var enemy = currentLocation.enemy;
 
     // console.log(enemy);
     enemyInfo.name = enemy.name;
