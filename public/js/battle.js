@@ -3,6 +3,9 @@ var playerHP = "";
 var playerATK = "";
 var playerInfo = {};
 var enemyInfo = {};
+var currentlocation = "";
+var Game = "";
+var GameInfo = "";
 
 var gameId = localStorage.getItem("GameId");
 if (gameId == null) {
@@ -17,7 +20,9 @@ var enemy = JSON.parse(stringifiedEnemy);
 
 $.get("/api/game/" + gameId, function (data) {
     console.log(data)
-    var game = data[0];
+    Game = data[0];
+    GameInfo = data;
+    console.log(Game);
 
     // console.log(enemy);
     enemyInfo.name = enemy.name;
@@ -33,7 +38,7 @@ $.get("/api/game/" + gameId, function (data) {
     // console.log(enemy);
 
 
-    var player = game.Player;
+    var player = Game.Player;
 
     console.log(player);
     playerInfo.name = player.name;
@@ -57,11 +62,13 @@ var Unit = new Phaser.Class({
         this.damage = damage; // default damage                
     },
     attack: function(target) {
-        target.takeDamage(this.damage);      
+        target.takeDamage(this.damage);   
+        console.log(this.damage);   
     },
     takeDamage: function(damage) {
-        this.hp -= damage;        
-    }
+        this.hp -= damage;
+        console.log(this.hp);        
+    },
 });
 
 var Enemy = new Phaser.Class({
@@ -149,7 +156,6 @@ var Menu = new Phaser.Class({
         this.menuItemIndex = 0;
     },
     confirm: function() {
-        // wen the player confirms his slection, do the action
     },
     clear: function() {
         for(var i = 0; i < this.menuItems.length; i++) {
@@ -326,10 +332,48 @@ var BattleScene = new Phaser.Class({
                 // call the enemy's attack function 
                 this.units[this.index].attack(this.heroes[r]);  
                 // add timer for the next turn, so will have smooth gameplay
-                this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
+                this.time.addEvent({ delay: 2000, callback: this.nextTurn, callbackScope: this });
+                console.log("Player HP remaining: " + this.heroes[r].hp);
+                if (this.heroes[r].hp <= 0) {
+                    console.log(GameInfo);
+                    GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+                    $.ajax({
+                        method: "PUT",
+                        url: "/api/game/",
+                        data: GameInfo
+                    }).then(function(response) {
+                        console.log(response);
+                        var someIframe = window.parent.document.getElementById("battle-modal");
+                        console.log(someIframe);
+                            // someIframe.parentNode.removeChild(someIframe);
+                            // window.parent.location.reload();
+                    });
+                }
             }
         }
     },
+        receivePlayerSelection: function(action, target) {
+            if(action == 'attack') {            
+                this.units[this.index].attack(this.enemies[target]);              
+            }
+            this.time.addEvent({ delay: 500, callback: this.nextTurn, callbackScope: this });
+            console.log("Enemy HP: " + this.enemies[target].hp); 
+            if (this.enemies[target].hp <= 0) {
+                console.log(GameInfo);
+                GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+                $.ajax({
+                    method: "PUT",
+                    url: "/api/game/",
+                    data: GameInfo
+                }).then(function(response) {
+                    console.log(response);
+                    var someIframe = window.parent.document.getElementById("battle-modal");
+                    console.log(someIframe);
+                        //someIframe.parentNode.removeChild(someIframe);
+                        // window.parent.location.reload();
+                });
+            }       
+        }
 });
  
 var UIScene = new Phaser.Class({
@@ -423,13 +467,7 @@ var UIScene = new Phaser.Class({
         this.enemiesMenu.deselect();
         this.currentMenu = null;
         this.battleScene.receivePlayerSelection('attack', index);
-    },
-    receivePlayerSelection: function(action, target) {
-        if(action == 'attack') {            
-            this.units[this.index].attack(this.enemies[target]);              
-        }
-        this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });        
-    },
+    }
 });
  
 var config = {
