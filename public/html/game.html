@@ -89,6 +89,9 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".save-modal">Save & Quit</button>
+        </div>
     </div>
     <footer class="footer">    
         <h5><a href="https://github.com/AshymOR/DnD-Campaign" target="_blank"><i class="fab fa-github"></i></a> | Copyright Silver Snakes © 2018</h5> 
@@ -197,6 +200,27 @@
                     <img class="img-fluid" alt="Make your choice!" src="https://media1.giphy.com/media/i7CWVT8rOBYoE/giphy.gif?cid=3640f6095bde757555673167516116c9">
                     <p class="decision-text">In the dark forest, you decide to go to either the hidden temple or the old pirate's caves. After some thought, you decide on...</p>
                     <button class="btn btn-secondary decision-one">Hidden Temple</button> <i class="far fa-compass"></i> <button class="btn btn-secondary decision-two">Pirate Caves</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save and Quit Modal -->
+    <div class="modal fade save-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Save Your Progress</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="decision-text">Make note of this Game ID, as you will need it should you wish to continue your journey at a later time.</p>
+                    <p id="gameID"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
