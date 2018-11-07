@@ -31,20 +31,20 @@
                     <div class="card-body" id="woodBG">
                         <ul id="partyList" class="list-group"></ul>
                             <div class="card">
-                                <img class="card-img-top card" id="playerSprite" style="max-width: 50px; max-height: 50px; margin-top: 2px; margin-left: 2px" src="#" alt="Future Sprite">
+                                <img class="card-img-top card mx-auto" id="playerSprite" style="max-width: 50px; max-height: 50px; margin-top: 2px; margin-left: 2px" src="#" alt="Future Sprite">
                                 <div class="card-body">
-                                    <h5 class="card-title card" id="name-header">John Smith</h5>
+                                    <h4 class="card-title card" id="name-header">John Smith</h4>
                                     <p class="card-text card">
                                         <strong>HP:</strong> 
                                         <strong id="hp">##/##</strong>
-                                        <!-- <br>
-                                        <strong>MP:</strong> 
-                                        <strong id="mp">##/##</strong> -->
                                     </p>
                                 </div>
                             </div>
                         </ul>
                     </div>
+                </div>
+                <div class="row" style="margin-top: 10px; margin-left: 10px">
+                    <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target=".save-modal" id="save-quit">Save & Quit</button>
                 </div>
             </div>
 
@@ -53,18 +53,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-9">
-                        <div class="game-area">
-                            <!-- BATTLE/ENCOUNTER AREA -->
-                            <!-- This is just some tester buttons -->
-                            <div id="modal-test-buttons">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".battle-modal">Battle</button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".encounter-modal">Encounter</button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".victory-modal">Victory</button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".decision-modal">Decision</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-md-9"></div>
 
                     <!-- Enemy/Room Info -->
                     <div class="col-md-3">
@@ -102,11 +91,6 @@
                 
             </div>
         </div>
-
-        <div class="row" style="margin-top: 10px; margin-left: 10px">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".save-modal" id="save-quit">Save & Quit</button>
-        </div>
-
     </div>
     <footer class="footer">    
         <h5><a href="https://github.com/AshymOR/DnD-Campaign" target="_blank"><i class="fab fa-github"></i></a> | Copyright Silver Snakes © 2018</h5> 
@@ -215,7 +199,6 @@
                     <img class="img-fluid" alt="Make your choice!" src="https://media1.giphy.com/media/i7CWVT8rOBYoE/giphy.gif?cid=3640f6095bde757555673167516116c9">
                     <p id="decision-text">In the dark forest, you decide to go to either the hidden temple or the old pirate's caves. After some thought, you decide on...</p>
                     <button id="decision-one" class="btn btn-secondary decision" leadsTo="0">Hidden Temple</button> 
-                    <i class="far fa-compass"></i> 
                     <button id="decision-two" class="btn btn-secondary decision" leadsTo="0">Pirate Caves</button>
                 </div>
                 <div class="modal-footer">

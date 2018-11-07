@@ -19,7 +19,7 @@ function Enemy(name, hp, atk, spriteURL, xp, loot) {
 
 //Enemy to be used for basic final product
 
-var lich = new Enemy("Lich", 135, 17, "../images/Sprites/TimeFantasy_Monsters/2x/$monster_lich.png", 300, "Bony Finger")
+var lich = new Enemy("Lich", 135, 17, "../images/Sprites/enemies/lich_single.png", 300, "Bony Finger")
 
 
 var startingPoint = new Location("Village", null, "/images/backDrops/Village/Village.jpg", "Continue", "You arrive at the village where the rumors of horrifc deaths and missing villagers originated from. After talking with a few of the locals you have discovered that an ancient crpyt was broken into a few months ago, shortly before the strange happenings started.");
@@ -183,7 +183,8 @@ $(document).ready(function () {
                 localStorage.setItem("CurrentEnemy", stringifiedEnemy);
             } 
             else if (currentLocationIndex === 3) {
-                // Player has beaten the boss. From here they can continue to the end screen.
+                $("#continue-button").hide()
+                $(".adventures").append("<br><a href='/results/'><button class='btn btn-secondary nextField btn-sm'>Victory is yours!</button></a>");
 
             }
         });
