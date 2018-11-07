@@ -24,6 +24,16 @@ $.get("/api/game/" + gameId, function (data) {
     GameInfo = data;
     console.log(Game);
 
+    var WTFmath = Game.currentLocI;
+    console.log(WTFmath);
+
+    WTFmath = WTFmath + parseInt(1);
+    console.log(WTFmath);
+
+    // WTF why does this set currentLocI to NaN???? WTFmath works just fine. I'm so confused. My husband is confused. Please help us understand this. It took us hours.
+    // GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+    // console.log(GameInfo[0]);
+
     // console.log(enemy);
     enemyInfo.name = enemy.name;
     enemyInfo.HP = enemy.hp;
@@ -334,19 +344,17 @@ var BattleScene = new Phaser.Class({
                 // add timer for the next turn, so will have smooth gameplay
                 this.time.addEvent({ delay: 2000, callback: this.nextTurn, callbackScope: this });
                 console.log("Player HP remaining: " + this.heroes[r].hp);
+                console.log(GameInfo[0]);
                 if (this.heroes[r].hp <= 0) {
                     console.log(GameInfo);
-                    GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+                    GameInfo[0].currentLocI += 1;
                     $.ajax({
                         method: "PUT",
                         url: "/api/game/",
-                        data: GameInfo
+                        data: GameInfo[0]
                     }).then(function(response) {
-                        console.log(response);
                         var someIframe = window.parent.document.getElementById("battle-modal");
-                        console.log(someIframe);
-                            // someIframe.parentNode.removeChild(someIframe);
-                            // window.parent.location.reload();
+                            window.parent.location.reload();
                     });
                 }
             }
@@ -358,19 +366,17 @@ var BattleScene = new Phaser.Class({
             }
             this.time.addEvent({ delay: 500, callback: this.nextTurn, callbackScope: this });
             console.log("Enemy HP: " + this.enemies[target].hp); 
+            console.log(GameInfo[0]);
             if (this.enemies[target].hp <= 0) {
                 console.log(GameInfo);
-                GameInfo[0].currentLocI = Game.currenLocI + parseInt(1);
+                GameInfo[0].currentLocI += 1;
                 $.ajax({
                     method: "PUT",
                     url: "/api/game/",
-                    data: GameInfo
+                    data: GameInfo[0]
                 }).then(function(response) {
-                    console.log(response);
                     var someIframe = window.parent.document.getElementById("battle-modal");
-                    console.log(someIframe);
-                        //someIframe.parentNode.removeChild(someIframe);
-                        // window.parent.location.reload();
+                        window.parent.location.reload();
                 });
             }       
         }
