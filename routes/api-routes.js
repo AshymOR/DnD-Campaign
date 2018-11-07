@@ -4,9 +4,10 @@ var db = require("../models");
 var locations = require("../public/js/locations");
 
 module.exports = function (app) {
+    // Returns a Game object
     app.get("/api/game/:id", function (req, res) {
         var id = req.params.id.split();
-        // 1. Add a join to include all of each Author's Posts
+        // Add a join to include all of each Author's Posts
         db.Game.findAll({
             include: [
                 db.Player
@@ -19,6 +20,7 @@ module.exports = function (app) {
         });
     });
 
+    // Returns a Game object based on a save code
     app.get("/api/loadgame/:code", function (req, res) {
         console.log("tried to load game")
         var code = req.params.code;

@@ -3,6 +3,7 @@ $(document).ready(function(){
     // $("#toGame").attr('disabled','disabled');
     // $("#resumeGame").attr('disabled','disabled');
 
+    // Load code entry
     $("#myBtn").click(function() {
         // pop modal
         $("#myModal").modal();
@@ -17,21 +18,22 @@ $(document).ready(function(){
         // }
         // when resume game btn clicked
     });
+
+    // Loads game after toGame button clicked
     $("#toGame").click(function(e) {
         // if four digit code entered, allow click
         console.log("I'm here!!!")
 
         var code = $("#code").val();
 
-            $.get("/api/loadgame/" + code, function (data) {
-                // log data
-                if (data) {
-                    console.log(data);
-                    console.log("id to set: " + data[0].id);
-                    localStorage.setItem("GameId", data[0].id);
-                }
-
-            });
+        $.get("/api/loadgame/" + code, function (data) {
+            // log data
+            if (data) {
+                console.log(data);
+                console.log("id to set: " + data[0].id);
+                localStorage.setItem("GameId", data[0].id);
+            }
+        });
 
     });
 });
