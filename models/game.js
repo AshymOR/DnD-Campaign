@@ -1,7 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Game = sequelize.define("Game", {
         code: DataTypes.STRING,
-        locations: DataTypes.TEXT,
         currentLocI:  {
             type: DataTypes.INTEGER,
             allowNull: false,

@@ -4,9 +4,9 @@ var playerATK = "";
 var playerInfo = {};
 var enemyInfo = {};
 
-var gameId = localStorage.getItem("Game");
+var gameId = localStorage.getItem("GameId");
 if (gameId == null) {
-    gameId = 1
+    gameId = 1;
 }
 
 var stringifiedEnemy = localStorage.getItem("CurrentEnemy");

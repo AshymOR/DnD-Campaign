@@ -57,7 +57,6 @@ module.exports = function (app) {
 
     // Creates a new game
     app.post("/api/game/", function (req, res) {
-        var locationArray = JSON.stringify(locations);
         // generate random four-char alphanumeric code
         var codeChars = ['a', '3', '4', '5', '9', 'e', '1', 'w', 'x', 'y', '7'];
         var char1 = codeChars[Math.floor(Math.random()*11)];
@@ -67,8 +66,7 @@ module.exports = function (app) {
         var generatedCode = char1+char2+char3+char4;
 
         db.Game.create({
-            code: generatedCode,
-            locations: locationArray
+            code: generatedCode
         }).then(function(newGame) {
             res.json(newGame)
         });

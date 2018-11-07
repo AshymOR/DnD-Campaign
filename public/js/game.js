@@ -1,3 +1,38 @@
+function Location(name, enemy, backgroundURL, actions, flavText) {
+    this.name = name;
+    this.enemy = enemy;
+    this.backgroundURL = backgroundURL;
+    this.actions = actions;
+    this.flavText = flavText;
+}
+
+function Enemy(name, hp, atk, spriteURL, xp, loot) {
+    this.name = name;
+    this.hp = hp;
+    this.atk = atk;
+    this.spriteURL = spriteURL;
+    this.xp = xp;
+    this.loot = loot;
+}
+//Example enemy
+//var troll = new Enemy("Troll", 100, 5, "#");
+
+//Enemy to be used for basic final product
+
+var lich = new Enemy("Lich", 135, 17, "../images/Sprites/TimeFantasy_Monsters/2x/$monster_lich.png", 300, "Bony Finger")
+
+
+var startingPoint = new Location("Village", null, "/images/backDrops/Village/Village.jpg", "Continue", "You arrive at the village where the rumors of horrifc deaths and missing villagers originated from. After talking with a few of the locals you have discovered that an ancient crpyt was broken into a few months ago, shortly before the strange happenings started.");
+
+var dungeonEntrance = new Location("First Chamber", null, "/images/backDrops/Dungeons/Dungeon2.jpg", "Continue", "Entering the crypt sends a chill down your spine. The air is damp and thick with the stench of decay. You can't see anything amiss but in the back of your mind you know there is something sinister at work here.")
+
+var bossRoom = new Location("Blood Chamber", lich, "/images/backDrops/Dungeon/Dungeon3.jpg", "Fight", "You enter the chamber to discover a lich perfmoring necromatic rituals. It appears this is the source of corruption.");
+
+var finalChamber = new Location("Secret Chamber", null, "/images/backDrops/Dungeon/Dungeon1.jpg", "Continue", "After defeating the lich and destroying its phylactery you discover a hidden chamber behind the monolithic statue. You find a small tunnel lined with strange, eerie faces, and at the end you discover the lich's hoard of gold, gems, and rare scrolls.")
+
+var locations = [startingPoint, dungeonEntrance, bossRoom, finalChamber];
+
+
 var Game;
 
 $(document).ready(function () {
@@ -5,6 +40,9 @@ $(document).ready(function () {
     var gameId = localStorage.GameId;
     // log the GameId
     console.log("GameId: " + gameId);
+
+    // declare global code variable to hold game code
+    var code;
 
     // if the GameId from localStorage isn't null
     if (gameId) {
@@ -58,9 +96,6 @@ $(document).ready(function () {
 
             // 1. Figure out the game's location
             var currentLocationIndex = Game.currentLocI;
-            var locationsString = Game.locations;
-            console.log(locationsString);
-            var locations = JSON.parse(locationsString);
             console.log(locations);
             var currentLocation = locations[currentLocationIndex];
             
@@ -95,6 +130,10 @@ $(document).ready(function () {
             $("#flavorText").text(currentLocation.flavText);
 
             $("#roomName").text(currentLocation.name);
+
+            //////////////////////////////
+            // GETTING GAME CODE
+            code = data[0].code;
 
 
 
@@ -148,6 +187,12 @@ $(document).ready(function () {
 
             }
         });
+            //////////////////////////////////////
+            // GETTING GAME CODE FOR SAVE AND QUIT
+            $("#save-quit").on("click", function(e) {
+                e.preventDefault();
+                $("#gameID").text(code);
+            })
     }
 
     $(".decision").on("click", function() {
