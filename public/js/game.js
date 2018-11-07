@@ -6,6 +6,9 @@ $(document).ready(function () {
     // log the GameId
     console.log("GameId: " + gameId);
 
+    // declare global code variable to hold game code
+    var code;
+
     // if the GameId from localStorage isn't null
     if (gameId) {
         // get the game object from db
@@ -96,6 +99,10 @@ $(document).ready(function () {
 
             $("#roomName").text(currentLocation.name);
 
+            //////////////////////////////
+            // GETTING GAME CODE
+            code = data[0].code;
+
 
 
             /////////////////////////////
@@ -144,6 +151,12 @@ $(document).ready(function () {
 
             }
         });
+            //////////////////////////////////////
+            // GETTING GAME CODE FOR SAVE AND QUIT
+            $("#save-quit").on("click", function(e) {
+                e.preventDefault();
+                $("#gameID").text(code);
+            })
     }
 
     $(".decision").on("click", function() {
